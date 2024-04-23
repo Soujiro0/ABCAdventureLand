@@ -1,0 +1,7 @@
+{
+  "name": "Project Form Scratch",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
