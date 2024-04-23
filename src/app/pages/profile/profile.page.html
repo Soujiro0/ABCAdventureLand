@@ -1,0 +1,83 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>My Profile</ion-title>
+    <ion-button fill="clear" shape="round" slot="end">
+      <ion-icon src="../../../assets/icon/settings icon.svg"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+  <div class="profile">
+    <div class="imgProfile">
+      <img src="../../../assets/Yamada.jpg">
+    </div>
+    <div class="nameProfile">
+      <h1>Anna Yamada</h1>
+      <ion-button fill="clear">
+        <ion-icon src="../../../assets/icon/edit.svg"></ion-icon>
+      </ion-button>
+    </div>
+    <div class="average">
+      <ion-card>
+        <ion-card-content>
+          <ion-card-title>100%</ion-card-title>
+          <ion-card-subtitle>Lectures</ion-card-subtitle>
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+        <ion-card-content>
+          <ion-card-title>100%</ion-card-title>
+          <ion-card-subtitle>Quizzes</ion-card-subtitle>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!--Contents-->
+  <div class="label">
+    <ion-title>Lectures</ion-title>
+  </div>
+  <ion-card>
+    <img src="../../../assets/images/lesson1.png" alt="lesson 1 image">
+    <ion-card-content>
+      <div>
+        <h1>Lesson 1</h1>
+        <h1>100%</h1>
+      </div>
+      <ion-progress-bar value="1"></ion-progress-bar> 
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <img src="../../../assets/images/lesson1.png" alt="lesson 2 image">
+    <ion-card-content>
+      <div>
+        <h1>Lesson 2</h1>
+        <h1>100%</h1>
+      </div>
+      <ion-progress-bar value="1"></ion-progress-bar> 
+    </ion-card-content>
+  </ion-card>
+  <div class="label">
+    <ion-title>Quizzes</ion-title>
+  </div>
+  <ion-card>
+    <img src="../../../assets/images/quiz1.png" alt="quiz 1 image">
+    <ion-card-content>
+      <div>
+        <h1>Quiz 1</h1>
+        <h1>100%</h1>
+      </div>
+      <ion-progress-bar value="1"></ion-progress-bar> 
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <img src="../../../assets/images/quiz2.png" alt="quiz 2 image">
+    <ion-card-content>
+      <div>
+        <h1>Quiz 2</h1>
+        <h1>100%</h1>
+      </div>
+      <ion-progress-bar value="1"></ion-progress-bar> 
+    </ion-card-content>
+  </ion-card>
+</ion-content>
