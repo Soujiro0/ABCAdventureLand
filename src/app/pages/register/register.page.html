@@ -1,13 +1,29 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>register</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">register</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="landing"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-progress-bar value="0.5"></ion-progress-bar>
+
+  <div class="genderSelect">
+    <ion-title>Character For:</ion-title>
+    <div>
+      <ion-button fill="clear">
+        <img src="../../../assets/images/boy.png">
+      </ion-button>
+      <ion-button fill="clear">
+        <img src="../../../assets/images/girl.png">
+      </ion-button>
+    </div>
+    <div>
+      <ion-radio-group name="gender" value="male" class="radioGroup">
+        <ion-radio value="male"></ion-radio>
+        <ion-radio value="female"></ion-radio>
+      </ion-radio-group>
+    </div>
+  </div>
+
+
+
 </ion-content>
