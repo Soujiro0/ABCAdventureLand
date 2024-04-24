@@ -53,27 +53,187 @@ ion-content {
     }
 
     div.genderSelect {
-        height: auto;
+        height: fit-content;
         max-width: 500px;
         width: 100%;
         margin-inline: auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        position: absolute;
+        top: 30%;
 
         ion-title {
             --color: #000000;
             font-size: 1.5rem;
             font-weight: bold;
+            text-align: center;
         }
 
         div {
             height: auto;
-            width: 100%;
+            max-width: 500px;
+            width: 90%;
             display: flex;
-            justify-content: space-evenly;
-            background-color: #c5c5c5;
+            justify-content: space-between;
+            margin-inline: auto;
+            margin-top: 20px;
+
+            ion-button {
+                --border-radius: 8px;
+                --border-style: solid;
+                --border-width: 5px;
+                --color: #000000;
+                --color-activated: #000000;
+                --color-focused: #000000;
+                --color-hover: #000000;
+                --padding-bottom: 4px;
+                --padding-end: 4px;
+                --padding-start: 4px;
+                --padding-top: 4px;
+                --transition: background-color 15ms linear;
+                height: 150px;
+                width: 150px;
+                margin-inline: auto;
+            }
         }
+
+        .radioGroup {
+            max-width: 500px;
+            width: 90%;
+            display: flex;
+            justify-content: space-between;
+            margin-inline: auto;
+
+            div {
+                height: auto;
+                width: 50%;
+                display: flex;
+                justify-content: center;
+
+                ion-radio {
+                    --border-radius: 8px;
+                    --color: #727272;
+                    --color-checked: #F46A17;
+                    --inner-border-radius: 2px
+                }
+            }
+        }
+
+        div.button {
+            height: fit-content;
+            width: 90%;
+            margin-inline: auto;
+            margin-top: 100px;
+
+            ion-button {
+                --background: #3880ff;
+                --background-activated: #3880ff;
+                --background-activated-opacity: 1;
+                --background-focused: #3880ff;
+                --background-focused-opacity: 1;
+                --background-hover: #3880ff;
+                --background-hover-opacity: 1;
+                --border-color: #3880ff;
+                --border-radius: 8px;
+                --border-style: solid;
+                --border-width: 8px;
+                --color: #ffffff;
+                --color-activated: #ffffff;
+                --color-focused: #ffffff;
+                --color-hover: #ffffff;
+                --opacity: 1;
+                --padding-bottom: 4px;
+                --padding-end: 4px;
+                --padding-start: 4px;
+                --padding-top: 4px;
+                --ripple-color: #1e1e1e;
+                --transition: background-color 15ms linear;
+                height: 50px;
+                max-width: 500px;
+                width: 100%;
+            }
+        }
+    }
+
+    div.birthdaySelect {
+        height: fit-content;
+        max-width: 500px;
+        width: 100%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+        ion-title {
+            --color: #000000;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        div.dateTimePicker {
+            height: auto;
+            width: fit-content;
+            margin-inline: auto;
+            margin-block: 20px;
+
+            ion-datetime {
+                --padding-bottom: 4px;
+                --padding-end: 4px;
+                --padding-start: 4px;
+                --padding-top: 4px;
+                --placeholder-color: #2e7aff;
+                background-color: #FFF6F4;
+            }
+        }
+    }
+
+    div.inputDetail {
+        height: fit-content;
+        max-width: 500px;
+        width: 100%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+        // login.component.scss
+
+// Custom styles for the LoginComponent
+ion-content {
+    --background: #FFFFFF;
+  }
+  
+  ion-toolbar {
+    --background: #FFFFFF;
+    --color: #000000;
+  }
+  
+  ion-button {
+    margin-top: 20px; // Add margin between input fields and the button
+  }
+  
+  ion-item {
+    --placeholder-color: #A0AEC0;
+    --color: #dd6d6d;
+    --highlight-color-focused: #5A67D8;
+  }
+  
+  ion-label {
+    color: #000000;
+  }
+  
+  ion-input {
+    --background: #FFFFFF;
+    --color: #000000;
+    --placeholder-color: #A0AEC0;
+    --border-color: #E2E8F0;
+    --border-radius: 0.375rem;
+    --border-style: solid;
+    --border-width: 1px;
+  }
+  
+  ion-item.activated, ion-item:hover {
+    background-color: #EDF2F7;
+  }
+  
     }
 }
