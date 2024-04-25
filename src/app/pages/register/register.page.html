@@ -25,8 +25,8 @@
       </div>
     </ion-radio-group>
     <div class="button">
-      <ion-button expand="block" shape="round">
-        Next
+      <ion-button fill="none">
+        <img src="../../../assets/images/next.png">
       </ion-button>
     </div>
   </div>
@@ -37,32 +37,37 @@
       <ion-datetime></ion-datetime>
     </div>
     <div class="button">
-      <ion-button expand="block" shape="round">
-        Next
+      <ion-button fill="none">
+        <img src="../../../assets/images/next.png">
+      </ion-button>
+      <ion-button expand="block" fill="clear" shape="round">
+        <ion-icon src="../../../assets/icon/arrow-back.svg"></ion-icon>
       </ion-button>
     </div>
   </div>
 
-  <div class="inputDetail">
+  <div class="inputDetail" [hidden]="false">
     <div class="ion-margin-bottom">
-      <ion-item>
-        <ion-label position="floating">Email</ion-label>
-        <ion-input type="email" placeholder="E-mail"></ion-input>
-      </ion-item>
+      <ion-label>Email:</ion-label>
+      <ion-input type="email" placeholder="Email"></ion-input>
     </div>
+
     <div class="ion-margin-bottom">
-      <ion-item>
-        <ion-label position="floating">Password</ion-label>
-        <ion-input type="password" placeholder="Password"></ion-input>
-      </ion-item>
+      <ion-label>Password:</ion-label>
+      <ion-input type="password" placeholder="Password"></ion-input>
     </div>
+
     <div class="ion-margin-bottom">
-      <ion-item>
-        <ion-label position="floating">Confirm Password</ion-label>
-        <ion-input type="password" placeholder="Confirm Password"></ion-input>
-      </ion-item>
+      <ion-label>Confirm Password:</ion-label>
+      <ion-input type="password" placeholder="Confirm Password"></ion-input>
     </div>
-    <ion-button expand="full" color="primary">Send OTP</ion-button>
+
+    <ion-button class="ion-margin-top" fill="none">
+      <img src="../../../assets/images/next.png">
+    </ion-button>
+    <ion-button expand="block" fill="clear" shape="round">
+      <ion-icon src="../../../assets/icon/arrow-back.svg"></ion-icon>
+    </ion-button>
   </div>
 
 
