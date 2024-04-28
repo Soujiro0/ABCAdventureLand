@@ -1,0 +1,102 @@
+div.genderContainer {
+    height: fit-content;
+    max-width: 500px;
+    width: 100%;
+    margin-inline: auto;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+
+    ion-label {
+        --color: #000000;
+        font-size: 2rem;
+        font-weight: bold;
+        margin-inline: 5%;
+    }
+
+    .genderSelect {
+        height: fit-content;
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-block: 20px;
+        
+        ion-button {
+            --background: transparent;
+            --background-activated: #FDA12E;
+            --background-activated-opacity: 1;
+            --background-focused: #FDA12E;
+            --background-focused-opacity: 1;
+            --background-hover: #FDA12E;
+            --background-hover-opacity: 1;
+            --border-color: #9C9C9C;
+            --border-radius: 10px;
+            --border-style: solid;
+            --border-width: 5px;
+            --color: #000000;
+            --color-activated: #ffffff;
+            --color-focused: #ffffff;
+            --color-hover: #ffffff;
+            --opacity: 1;
+            --padding-bottom: 10px;
+            --padding-end: 10px;
+            --padding-start: 10px;
+            --padding-top: 10px;
+            --transition: background-color 15ms linear;
+            height: 150px;
+            width: 150px;
+        }
+        .radio {
+            text-align: center;
+            width: 150px;
+
+            ion-radio {
+                --border-radius: 10px;
+                --color: #9C9C9C;
+                --color-checked: #FDA12E;
+                --inner-border-radius: 10px;
+            }
+        }
+    }
+
+    #nextButton {
+        height: fit-content;
+        width: 100%;
+
+        ion-button {
+            --background: transparent;
+            --background-activated: transparent;
+            --background-activated-opacity: 1;
+            --background-focused: transparent;
+            --background-focused-opacity: 1;
+            --background-hover: transparent;
+            --background-hover-opacity: 1;
+            --border-color: transparent;
+            --border-radius: 8px;
+            --border-style: solid;
+            --border-width: 8px;
+            --color: #ffffff;
+            --color-activated: #ffffff;
+            --color-focused: #ffffff;
+            --color-hover: #ffffff;
+            --opacity: 1;
+            --padding-bottom: 4px;
+            --padding-end: 4px;
+            --padding-start: 4px;
+            --padding-top: 4px;
+            --transition: background-color 15ms linear;
+            height: 100px;
+            max-width: 500px;
+            width: 80%;
+            display: block;
+            margin: auto;
+
+            img {
+                height: 100%;
+                width: 100%;
+            }
+        }
+    }
+}

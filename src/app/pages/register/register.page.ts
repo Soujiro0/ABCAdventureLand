@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -6,12 +7,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
-  progress = 0;
+  currentProgress : string | undefined;
+  progressBar : number = .2;
 
-
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit() {
-    this.progress = .25;
+    this.currentProgress = 'gender';
+  }
+
+  //This method returns boolean for displaying current display progress
+  displayCurrentDisp(display : string){
+    if(this.currentProgress ===  display){
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  //This method is for progressing the progress bar
+  incrementProgressBar(){
+    this.progressBar += .20;
   }
 }

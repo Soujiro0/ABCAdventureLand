@@ -41,11 +41,13 @@ ion-content {
                 text-align: center;
                 font-size: 1.3rem;
                 margin-block: 10px;
+                width: 80%;
+                margin-inline: auto;
             }
         }
     
         div.buttonContainer {
-            height: 300px;
+            height: 200px;
             max-width: 500px;
             width: 100%;
             display: flex;
@@ -70,9 +72,9 @@ ion-content {
                 --padding-start: 4px;
                 --padding-top: 4px;
                 --transition: background-color 15ms linear;
-                height: 200px;
+                height: 100%;
                 max-width: 500px;
-                width: 90%;
+                width: 80%;
             }
         }
     }

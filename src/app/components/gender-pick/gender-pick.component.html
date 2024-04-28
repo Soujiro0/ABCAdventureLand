@@ -1,0 +1,17 @@
+<div class="genderContainer">
+  <ion-label>Character For:</ion-label>
+  <div class="genderSelect">
+    <ion-button><img src="../../../assets/images/boy.png" alt="boy image"></ion-button>
+    <ion-button><img src="../../../assets/images/girl.png" alt="girl image"></ion-button>
+  </div>
+  <ion-radio-group class="genderSelect" name="gender" value="male">
+    <div class="radio"><ion-radio value="male"></ion-radio></div>
+    <div class="radio"><ion-radio value="female"></ion-radio></div>
+  </ion-radio-group>
+
+  <div id="nextButton">
+    <ion-button fill="clear" (click)="clickNext()">
+      <img src="../../../assets/images/next.png" />
+    </ion-button>
+  </div>
+</div>

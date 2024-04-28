@@ -1,74 +1,17 @@
 <ion-content [fullscreen]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="landing"></ion-back-button>
-    </ion-buttons>
-  </ion-toolbar>
-  <ion-progress-bar value="0.5"></ion-progress-bar>
-
-  <div class="genderSelect" [hidden]="true">
-    <ion-title>Character For:</ion-title>
-    <div>
-      <ion-button fill="clear">
-        <img src="../../../assets/images/boy.png">
-      </ion-button>
-      <ion-button fill="clear">
-        <img src="../../../assets/images/girl.png">
-      </ion-button>
-    </div>
-    <ion-radio-group name="gender" value="male" class="radioGroup">
-      <div>
-        <ion-radio value="male"></ion-radio>
-      </div>
-      <div>
-        <ion-radio value="female"></ion-radio>
-      </div>
-    </ion-radio-group>
-    <div class="button">
-      <ion-button fill="none">
-        <img src="../../../assets/images/next.png">
-      </ion-button>
-    </div>
+  <!-- <app-loading [hidden]="true"></app-loading> -->
+  <div class="content" [hidden]="false">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="landing"></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+    <ion-title>ABC <br> ADVENTURE LAND</ion-title>
+    <ion-progress-bar [value]="progressBar"></ion-progress-bar>
+  
+    <app-gender-pick [hidden]="displayCurrentDisp('gender')" ></app-gender-pick>
+    <app-birthday-selector [hidden]="displayCurrentDisp('bday')"></app-birthday-selector>
+    <app-input-details [hidden]="displayCurrentDisp('input')"></app-input-details>
+    <app-avatar-pick [hidden]="displayCurrentDisp('avatar')"></app-avatar-pick>
   </div>
-
-  <div class="birthdaySelect" [hidden]="true">
-    <ion-title>Select your birthday: </ion-title>
-    <div class="dateTimePicker">
-      <ion-datetime></ion-datetime>
-    </div>
-    <div class="button">
-      <ion-button fill="none">
-        <img src="../../../assets/images/next.png">
-      </ion-button>
-      <ion-button expand="block" fill="clear" shape="round">
-        <ion-icon src="../../../assets/icon/arrow-back.svg"></ion-icon>
-      </ion-button>
-    </div>
-  </div>
-
-  <div class="inputDetail" [hidden]="false">
-    <div class="ion-margin-bottom">
-      <ion-label>Email:</ion-label>
-      <ion-input type="email" placeholder="Email"></ion-input>
-    </div>
-
-    <div class="ion-margin-bottom">
-      <ion-label>Password:</ion-label>
-      <ion-input type="password" placeholder="Password"></ion-input>
-    </div>
-
-    <div class="ion-margin-bottom">
-      <ion-label>Confirm Password:</ion-label>
-      <ion-input type="password" placeholder="Confirm Password"></ion-input>
-    </div>
-
-    <ion-button class="ion-margin-top" fill="none">
-      <img src="../../../assets/images/next.png">
-    </ion-button>
-    <ion-button expand="block" fill="clear" shape="round">
-      <ion-icon src="../../../assets/icon/arrow-back.svg"></ion-icon>
-    </ion-button>
-  </div>
-
-
 </ion-content>
