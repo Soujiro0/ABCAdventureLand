@@ -19,6 +19,18 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
   },
+  {
+    path: 'lesson-one',
+    loadChildren: () => import('./pages/lessons/lesson-one/lesson-one.module').then( m => m.LessonOnePageModule)
+  },
+  {
+    path: 'lesson-two',
+    loadChildren: () => import('./pages/lessons/lesson-two/lesson-two.module').then( m => m.LessonTwoPageModule)
+  },
+  {
+    path: 'lesson-one-play',
+    loadChildren: () => import('./pages/lessons/lesson-one-play/lesson-one-play.module').then( m => m.LessonOnePlayPageModule)
+  },
 ];
 
 @NgModule({

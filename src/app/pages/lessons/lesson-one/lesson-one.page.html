@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Lesson One</ion-title>
+  </ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-back-button></ion-back-button>
+  </ion-buttons>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-segment value="vowels" (ionChange)="selectSegment($event)">
+    <ion-segment-button value="vowels">
+      <ion-label>VOWELS</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="consonants">
+      <ion-label>CONSONANTS</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div class="grid" *ngIf="displayContent() === 'vowels'" >
+    <img [src]="letter.image" *ngFor="let letter of vowels">
+  </div>
+  <div class="grid" *ngIf="displayContent() === 'consonants'" >
+    <img [src]="letter.image" *ngFor="let letter of consonants">
+  </div>
+</ion-content>
