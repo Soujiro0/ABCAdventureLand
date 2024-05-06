@@ -5,16 +5,22 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card>
-    <img src="../../../assets/images/Lesson1Alphabets.png" alt="lesson 1 image">
-    <ion-card-content>
-      <ion-card-title>Alphabet</ion-card-title>
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <img src="../../../assets/images/Lesson2ReadingComprehension.png" alt="lesson 1 image">
-    <ion-card-content>
-      <ion-card-title>Reading Comprehension</ion-card-title>
-    </ion-card-content>
-  </ion-card>
-</ion-content>
+  <a [routerLink] = "'/lesson-one'">
+    <ion-card>
+      <img src="../../../assets/images/Lesson1Alphabets.png" alt="lesson 1 image">
+      <ion-card-content>
+        <ion-card-title>Alphabet</ion-card-title>
+      </ion-card-content>
+    </ion-card>
+  </a> 
+
+  <a [routerLink] = "'/lesson-two'">
+    <ion-card>
+      <img src="../../../assets/images/Lesson2ReadingComprehension.png" alt="lesson 1 image">
+      <ion-card-content>
+        <ion-card-title>Reading Comprehension</ion-card-title>
+      </ion-card-content>
+    </ion-card>
+    </a>
+  </ion-content>
+

@@ -1,0 +1,51 @@
+ion-toolbar {
+    --background: #FFF6F4;
+    --border-color: #FFF6F4;
+    --border-style: solid;
+    --border-width: 8px;
+    --color: #000000;
+    --min-height: 56px;
+    --padding-bottom: 4px;
+    --padding-end: 4px;
+    --padding-start: 4px;
+    --padding-top: 4px;
+}
+
+ion-content {
+    --background: #FFF6F4;
+    --color: #000000;
+}
+
+.object1 {
+    max-width: 220px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.sentence {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.sentence span {
+    color: #525FE1;
+}
+
+.question {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000; 
+    text-align: center;
+    margin-top: 70px; 
+}
+
+.choices{
+    max-width: 165px;
+    align-items: center;
+    margin: 0 auto;
+}
+
+

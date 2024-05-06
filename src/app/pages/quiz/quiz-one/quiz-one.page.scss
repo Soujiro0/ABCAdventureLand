@@ -1,15 +1,19 @@
 ion-toolbar {
-  --background: #ffffff;
-  --border-color: #ffffff;
+  --background: #FFF6F4;
+  --border-color: #FFF6F4;
   --border-style: solid;
   --border-width: 8px;
   --color: #000000;
   --min-height: 56px;
-  --opacity: 1;
   --padding-bottom: 4px;
   --padding-end: 4px;
   --padding-start: 4px;
   --padding-top: 4px;
+}
+
+ion-content {
+  --background: #FFF6F4;
+  --color: #000000;
 }
 
 h2 {
@@ -18,13 +22,13 @@ h2 {
   font-weight: medium;
   margin: 0;
   padding-top: 50px;
-  padding-left: 30px;
+  padding-left: 10%;
 }
-
 
 ion-grid{
-  margin-top: 25%;
+  margin-top: 75px;
 }
+
 
 ion-col {
   display: flex;

@@ -1,3 +1,21 @@
+ion-toolbar {
+  --background: #FFF6F4;
+  --border-color: #FFF6F4;
+  --border-style: solid;
+  --border-width: 8px;
+  --color: #000000;
+  --min-height: 56px;
+  --padding-bottom: 4px;
+  --padding-end: 4px;
+  --padding-start: 4px;
+  --padding-top: 4px;
+}
+
+ion-content {
+  --background: #FFF6F4;
+  --color: #000000;
+}
+
 ion-text {
     display: flex;
     justify-content: center;
