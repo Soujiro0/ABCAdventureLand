@@ -1,13 +1,40 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>lesson-one-play</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref="/lesson-one"></ion-back-button>
+  </ion-buttons>
+</ion-toolbar>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">lesson-one-play</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-text>
+    <h1>
+      Aa
+    </h1>
+  </ion-text>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col class="object1">
+        <img src="../../../../assets/lessonOnePlayObjects/apple.png" alt="object1">
+        <h3>Apple</h3>
+        <h3><span>Ah</span>-<span>Puhl</span></h3>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="button-row">
+      <ion-col></ion-col>
+      <ion-col class="previous">
+        <img src="../../../../assets/icon/playpreviousButton (1).svg" alt="previous">
+      </ion-col>
+
+      <ion-col class="play">
+        <img src="../../../../assets/icon/playButton.svg" alt="play">
+      </ion-col>
+
+      <ion-col class="next">
+        <img src="../../../../assets/icon/playnextButton (1).svg" alt="next">
+      </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
+

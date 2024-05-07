@@ -5,7 +5,6 @@ ion-toolbar {
   --border-width: 8px;
   --color: #000000;
   --min-height: 56px;
-  --opacity: 1;
   --padding-bottom: 4px;
   --padding-end: 4px;
   --padding-start: 4px;
@@ -15,6 +14,7 @@ ion-toolbar {
 ion-content {
   --background: #FFF6F4;
   --color: #000000;
+<<<<<<< HEAD
   --keyboard-offset: 0px;
   --offset-bottom: 0px;
   --offset-top: 0px;
@@ -22,6 +22,8 @@ ion-content {
   --padding-end: 0px;
   --padding-start: 0px;
   --padding-top: 0px;
+=======
+>>>>>>> cbc40b7c178ad87980f74c985419213c5653a352
 }
 
 h2 {
@@ -30,13 +32,13 @@ h2 {
   font-weight: medium;
   margin: 0;
   padding-top: 50px;
-  padding-left: 30px;
+  padding-left: 10%;
 }
-
 
 ion-grid{
-  margin-top: 25%;
+  margin-top: 75px;
 }
+
 
 ion-col {
   display: flex;

@@ -1,0 +1,84 @@
+ion-toolbar {
+    --background: #FFF6F4;
+    --border-color: #FFF6F4;
+    --border-style: solid;
+    --border-width: 8px;
+    --color: #000000;
+    --min-height: 56px;
+    --padding-bottom: 4px;
+    --padding-end: 4px;
+    --padding-start: 4px;
+    --padding-top: 4px;
+}
+
+ion-content {
+    --background: #FFF6F4;
+    --color: #000000;
+}
+
+ion-text h1 {
+    font-size: 6rem;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 5px;
+}
+
+ion-col.object1 {
+    max-width: 300px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+ion-col.object1 img {
+    max-width: 100%;
+}
+
+ion-col.object1 h3 {
+    margin-top: 5px;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+ion-col.object1 h3 span {
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+
+ion-col.object1 h3 span:first-child {
+    color: red;
+}
+
+ion-col.object1 h3 span:last-child {
+    color: black;
+}
+
+.button-row {
+    margin-top: 35px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px 0;
+}
+  
+  .play img {
+    max-width: 80px;
+    align-items: center;
+    height: auto;
+  }
+  
+  .previous, .next, .play{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 0 10px;
+  }
+  
+  .previous img, .next img {
+    max-width: 45px;
+    height: auto;
+  }
+  
+
+
