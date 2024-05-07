@@ -1,3 +1,29 @@
+ion-toolbar {
+  --background: #FFF6F4;
+  --border-color: #FFF6F4;
+  --border-style: solid;
+  --border-width: 8px;
+  --color: #000000;
+  --min-height: 56px;
+  --opacity: 1;
+  --padding-bottom: 4px;
+  --padding-end: 4px;
+  --padding-start: 4px;
+  --padding-top: 4px;
+}
+
+ion-content {
+  --background: #FFF6F4;
+  --color: #000000;
+  --keyboard-offset: 0px;
+  --offset-bottom: 0px;
+  --offset-top: 0px;
+  --padding-bottom: 0px;
+  --padding-end: 0px;
+  --padding-start: 0px;
+  --padding-top: 0px;
+}
+
 ion-text {
     display: flex;
     justify-content: center;

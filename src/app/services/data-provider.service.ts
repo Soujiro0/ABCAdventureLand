@@ -1,127 +1,50 @@
 import { Injectable } from '@angular/core';
+import { Letter } from '../models/letter';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataProviderService {
-  public vowels : any[] = [];
+  public vowels : Letter[] = [];
   public consonants : any[] =[];
 
   constructor() { }
 
   generateVowels(){
     this.vowels = [
-      {
-        letter: 'A',
-        image: 'assets/images/vowels/A.png',
-      },
-      {
-        letter: 'E',
-        image: 'assets/images/vowels/E.png',
-      },
-      {
-        letter: 'I',
-        image: 'assets/images/vowels/I.png',
-      },
-      {
-        letter: 'O',
-        image: 'assets/images/vowels/O.png',
-      },
-      {
-        letter: 'U',
-        image: 'assets/images/vowels/U.png',
-      },
-    ]
+      new Letter('A', 'A' , 'a', 'assets/images/vowels/A.png', '', ''),
+      new Letter('E', 'E' , 'e', 'assets/images/vowels/E.png', '', ''),
+      new Letter('I', 'I' , 'i', 'assets/images/vowels/I.png', '', ''),
+      new Letter('O', 'O' , 'o', 'assets/images/vowels/O.png', '', ''),
+      new Letter('U', 'U' , 'u', 'assets/images/vowels/U.png', '', '')
+    ];
     return this.vowels;
   }
 
   generateConsonants(){
     this.consonants = [
-      {
-        letter: 'B',
-        image: 'assets/images/consonants/B.png',
-      },
-      {
-        letter: 'C',
-        image: 'assets/images/consonants/C.png',
-      },
-      {
-        letter: 'D',
-        image: 'assets/images/consonants/D.png',
-      },
-      {
-        letter: 'F',
-        image: 'assets/images/consonants/F.png',
-      },
-      {
-        letter: 'G',
-        image: 'assets/images/consonants/G.png',
-      },
-      {
-        letter: 'H',
-        image: 'assets/images/consonants/H.png',
-      },
-      {
-        letter: 'J',
-        image: 'assets/images/consonants/J.png',
-      },
-      {
-        letter: 'K',
-        image: 'assets/images/consonants/K.png',
-      },
-      {
-        letter: 'L',
-        image: 'assets/images/consonants/L.png',
-      },
-      {
-        letter: 'M',
-        image: 'assets/images/consonants/M.png',
-      },
-      {
-        letter: 'N',
-        image: 'assets/images/consonants/N.png',
-      },
-      {
-        letter: 'P',
-        image: 'assets/images/consonants/P.png',
-      },
-      {
-        letter: 'Q',
-        image: 'assets/images/consonants/Q.png',
-      },
-      {
-        letter: 'R',
-        image: 'assets/images/consonants/R.png',
-      },
-      {
-        letter: 'S',
-        image: 'assets/images/consonants/S.png',
-      },
-      {
-        letter: 'T',
-        image: 'assets/images/consonants/T.png',
-      },
-      {
-        letter: 'V',
-        image: 'assets/images/consonants/V.png',
-      },
-      {
-        letter: 'W',
-        image: 'assets/images/consonants/W.png',
-      },
-      {
-        letter: 'X',
-        image: 'assets/images/consonants/X.png',
-      },
-      {
-        letter: 'Y',
-        image: 'assets/images/consonants/Y.png',
-      },
-      {
-        letter: 'Z',
-        image: 'assets/images/consonants/Z.png',
-      },
-    ]
+      new Letter('B', 'B' , 'b', 'assets/images/consonants/B.png', '', ''),
+      new Letter('C', 'C' , 'c', 'assets/images/consonants/C.png', '', ''),
+      new Letter('D', 'D' , 'd', 'assets/images/consonants/D.png', '', ''),
+      new Letter('F', 'F' , 'f', 'assets/images/consonants/F.png', '', ''),
+      new Letter('G', 'G' , 'g', 'assets/images/consonants/G.png', '', ''),
+      new Letter('H', 'H' , 'h', 'assets/images/consonants/H.png', '', ''),
+      new Letter('J', 'J' , 'j', 'assets/images/consonants/J.png', '', ''),
+      new Letter('K', 'K' , 'k', 'assets/images/consonants/K.png', '', ''),
+      new Letter('L', 'L' , 'l', 'assets/images/consonants/L.png', '', ''),
+      new Letter('M', 'M' , 'm', 'assets/images/consonants/M.png', '', ''),
+      new Letter('N', 'N' , 'n', 'assets/images/consonants/N.png', '', ''),
+      new Letter('P', 'P' , 'p', 'assets/images/consonants/P.png', '', ''),
+      new Letter('Q', 'Q' , 'q', 'assets/images/consonants/Q.png', '', ''),
+      new Letter('R', 'R' , 'r', 'assets/images/consonants/R.png', '', ''),
+      new Letter('S', 'S' , 's', 'assets/images/consonants/S.png', '', ''),
+      new Letter('T', 'T' , 't', 'assets/images/consonants/T.png', '', ''),
+      new Letter('V', 'V' , 'v', 'assets/images/consonants/V.png', '', ''),
+      new Letter('W', 'W' , 'w', 'assets/images/consonants/W.png', '', ''),
+      new Letter('X', 'X' , 'x', 'assets/images/consonants/X.png', '', ''),
+      new Letter('Y', 'Y' , 'y', 'assets/images/consonants/Y.png', '', ''),
+      new Letter('Z', 'Z' , 'z', 'assets/images/consonants/Z.png', '', '')
+    ];
     return this.consonants;
   }
 

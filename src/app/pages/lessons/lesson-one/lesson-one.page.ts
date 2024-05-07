@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Letter } from 'src/app/models/letter';
 import { DataProviderService } from 'src/app/services/data-provider.service';
 
 @Component({
@@ -7,8 +8,8 @@ import { DataProviderService } from 'src/app/services/data-provider.service';
   styleUrls: ['./lesson-one.page.scss'],
 })
 export class LessonOnePage implements OnInit{
-  vowels : any[] = [];
-  consonants : any[] = [];
+  vowels : Letter[] = [];
+  consonants : Letter[] = [];
   selectedSegment: string = 'vowels';
 
   constructor(private data : DataProviderService) { }

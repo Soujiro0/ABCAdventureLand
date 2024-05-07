@@ -10,6 +10,7 @@ export class QuizOnePage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    return 0;
   }
 
 }
