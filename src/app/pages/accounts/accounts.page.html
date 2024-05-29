@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="landing"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="font-size: 1.5rem; font-weight: bold;">Profiles</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div
+  class="ion-padding"
+    style="height: fit-content; width: 100%; max-width: 600px; margin-inline: auto; display: grid; grid-template-columns: repeat(3, 1fr); place-items: center; gap: 10px;"
+  >
+    <div class="profiles">
+      <ion-avatar
+        style="height: 100px; width: 100px; border: 3px black solid; display: block; margin: auto;">
+        <img src="../../../assets/images/boy.png"
+          style="padding: 10px; border-radius: 0px;"
+        >
+      </ion-avatar>
+      <ion-text style="width: 100%; display: block; text-align: center;">
+        <span>Jerry</span>
+      </ion-text>
+    </div>
+  </div>
+  <ion-button
+    expand="block"
+    shape="round"
+    style="font-size: 1.25rem; font-weight: bold; margin-top: 50px;" class="ion-padding"
+    (click)="goToRegister()"
+    >
+    <ion-text style="padding: 10px;">
+      <span>ADD PROFILE</span>
+    </ion-text>
+    <ion-icon name="add-circle-sharp" style="font-size: 2rem; font-weight: bold;"></ion-icon>
+  </ion-button>
+</ion-content>

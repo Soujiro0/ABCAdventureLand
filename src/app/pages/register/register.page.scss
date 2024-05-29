@@ -4,60 +4,73 @@ ion-content {
 
     ion-title {
         --color: #000000;
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-weight: bold;
         text-align: center;
-        text-wrap:balance;
-        margin-bottom: 20px;
     }
 
     ion-toolbar {
         --background: #FFF6F4;
         --border-color: #FFF6F4;
-        --border-style: solid;
-        --border-width: 8px;
-        --color: #000000;
-        --padding-bottom: 4px;
-        --padding-end: 4px;
-        --padding-start: 4px;
-        --padding-top: 4px;
-
-        ion-back-button {
-            --background: transparent;
-            --background-hover: transparent;
-            --color: #000000;
-            --color-hover: #FFF6F4;
-            --icon-font-size: 35px;
-            --icon-font-weight: bold;
-            --icon-margin-bottom: 4px;
-            --icon-margin-end: 4px;
-            --icon-margin-start: 4px;
-            --icon-margin-top: 4px;
-            --icon-padding-bottom: 4px;
-            --icon-padding-end: 4px;
-            --icon-padding-start: 4px;
-            --icon-padding-top: 4px;
-            --margin-bottom: 4px;
-            --margin-end: 4px;
-            --margin-start: 4px;
-            --margin-top: 4px;
-            --min-height: 32px;
-            --min-width: 44px;
-            --padding-bottom: 4px;
-            --padding-end: 4px;
-            --padding-start: 4px;
-            --padding-top: 4px;
-        }
+        color: #000000;
     }
 
-    ion-progress-bar {
-        --background: #c5c5c5;
-        --buffer-background: #c5c5c5;
-        --progress-background: #FDA12E;
-        height: 15px;
-        max-width: 500px;
-        width: 90%;
-        margin-inline: auto;
-        border-radius: 20px;
+    .gender-choices {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
+
+    .gender-choices img {
+      height: 75px;
+      width: 75px;
+      margin: 20px;
+    }
+
+    ion-radio {
+      --border-radius: 10px;
+      --color: #9C9C9C;
+      --color-checked: #FDA12E;
+      --inner-border-radius: 10px;
+    }
+
+    //     ion-back-button {
+    //         --background: transparent;
+    //         --background-hover: transparent;
+    //         --color: #000000;
+    //         --color-hover: #FFF6F4;
+    //         --icon-font-size: 35px;
+    //         --icon-font-weight: bold;
+    //         --icon-margin-bottom: 4px;
+    //         --icon-margin-end: 4px;
+    //         --icon-margin-start: 4px;
+    //         --icon-margin-top: 4px;
+    //         --icon-padding-bottom: 4px;
+    //         --icon-padding-end: 4px;
+    //         --icon-padding-start: 4px;
+    //         --icon-padding-top: 4px;
+    //         --margin-bottom: 4px;
+    //         --margin-end: 4px;
+    //         --margin-start: 4px;
+    //         --margin-top: 4px;
+    //         --min-height: 32px;
+    //         --min-width: 44px;
+    //         --padding-bottom: 4px;
+    //         --padding-end: 4px;
+    //         --padding-start: 4px;
+    //         --padding-top: 4px;
+    //     }
+    // }
+
+    // ion-progress-bar {
+    //     --background: #c5c5c5;
+    //     --buffer-background: #c5c5c5;
+    //     --progress-background: #FDA12E;
+    //     height: 15px;
+    //     max-width: 500px;
+    //     width: 90%;
+    //     margin-inline: auto;
+    //     border-radius: 20px;
+    // }
 }

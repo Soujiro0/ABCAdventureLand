@@ -30,13 +30,18 @@ const routes: Routes = [
   {
     path: 'lesson-one-play',
     loadChildren: () => import('./pages/lessons/lesson-one-play/lesson-one-play.module').then( m => m.LessonOnePlayPageModule)
-  },  {
+  },
+  {
     path: 'quiz-one',
     loadChildren: () => import('./pages/quiz/quiz-one/quiz-one.module').then( m => m.QuizOnePageModule)
   },
   {
     path: 'quiz-two',
     loadChildren: () => import('./pages/quiz/quiz-two/quiz-two.module').then( m => m.QuizTwoPageModule)
+  },
+  {
+    path: 'accounts',
+    loadChildren: () => import('./pages/accounts/accounts.module').then( m => m.AccountsPageModule)
   },
 
 ];

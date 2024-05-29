@@ -6,12 +6,197 @@
         <ion-back-button defaultHref="landing"></ion-back-button>
       </ion-buttons>
     </ion-toolbar>
-    <ion-title>ABC <br> ADVENTURE LAND</ion-title>
-    <ion-progress-bar [value]="progressBar"></ion-progress-bar>
-  
-    <app-gender-pick [hidden]="displayCurrentDisp('gender')" ></app-gender-pick>
-    <app-birthday-selector [hidden]="displayCurrentDisp('bday')"></app-birthday-selector>
-    <app-input-details [hidden]="displayCurrentDisp('input')"></app-input-details>
-    <app-avatar-pick [hidden]="displayCurrentDisp('avatar')"></app-avatar-pick>
+    <ion-title>Create your Profie</ion-title>
+    <!-- <ion-progress-bar [value]="progressBar"></ion-progress-bar> -->
+
+
+    <form #form="ngForm">
+
+      <!--Email Input-->
+      <div style="display: flex; align-items: center;" class="ion-padding">
+        <ion-label style="margin-inline-end: 10px;">Email:</ion-label>
+        <ion-input
+          type="text"
+          placeholder="Email"
+          required
+          name="email"
+          [(ngModel)]="model.name"
+          style="
+            border: #050505 solid 2px;
+            border-radius: 10px;
+            --padding-start: 10px;
+            --padding-end: 10px
+          "
+          ></ion-input>
+      </div>
+
+      <div style="display: flex; align-items: center;" class="ion-padding">
+        <ion-label style="margin-inline-end: 10px;">Password:</ion-label>
+        <ion-input
+          type="text"
+          placeholder="Password"
+          required
+          name="password"
+          [(ngModel)]="model.password"
+          style="
+            border: #050505 solid 2px;
+            border-radius: 10px;
+            --padding-start: 10px;
+            --padding-end: 10px
+          "
+          ></ion-input>
+      </div>
+
+            <!--Gender Radio Button-->
+      <ion-list style="background-color: #FFF6F4;">
+        <ion-radio-group name="gender" value="boy" (ionChange)="selectedGender($event)" [(ngModel)]="model.gender" style="display: flex; flex-wrap: wrap; justify-content: center; background-color:#FFF6F4;">
+          <ion-list-header>
+            <ion-label style="font-size: 1rem; font-weight: bold; color: #050505;">Character For:</ion-label>
+          </ion-list-header>
+          <div class="gender-choices">
+            <img src="../../../assets/images/boy.png" alt="boy image" height="50">
+            <div>
+              <ion-radio value="boy"></ion-radio>
+            </div>
+          </div>
+          <div class="gender-choices">
+            <img src="../../../assets/images/girl.png" alt="girl image" height="50">
+            <div>
+              <ion-radio value="girl"></ion-radio>
+            </div>
+          </div>
+        </ion-radio-group>
+      </ion-list>
+
+      <div style="display: flex; align-items: center;" class="ion-padding">
+        <ion-label style="margin-inline-end: 10px;">Username:</ion-label>
+        <ion-input
+          type="text"
+          placeholder="Username"
+          required
+          name="username"
+          [(ngModel)]="model.username"
+          style="
+            border: #050505 solid 2px;
+            border-radius: 10px;
+            --padding-start: 10px;
+            --padding-end: 10px
+          "
+          ></ion-input>
+      </div>
+
+      <div style="display: flex; align-items: center;" class="ion-padding">
+        <ion-label style="margin-inline-end: 10px;">Birthday:</ion-label>
+        <ion-input
+          (keyup)="validateBirthday()"
+          type="tel"
+          [maxlength]="2"
+          placeholder="month"
+          required
+          name="month"
+          [(ngModel)]="month"
+          style="
+            width: 100px;
+            border: #050505 solid 2px;
+            border-radius: 10px;
+            --padding-start: 10px;
+            --padding-end: 10px
+          "
+          ></ion-input>
+          <span style="margin-inline: 20px; font-size: 1.5rem; font-weight: bold;">/</span>
+          <ion-input
+          (keyup)="validateBirthday()"
+          type="tel"
+          [maxlength]="2"
+          placeholder="day"
+          required
+          name="day"
+          [(ngModel)]="day"
+          style="
+            width: 100px;
+            border: #050505 solid 2px;
+            border-radius: 10px;
+            --padding-start: 10px;
+            --padding-end: 10px
+          "
+          ></ion-input>
+          <span style="margin-inline: 20px; font-size: 1.5rem; font-weight: bold;">/</span>
+          <ion-input
+          (keyup)="validateBirthday()"
+          type="tel"
+          [maxlength]="4"
+          placeholder="year"
+          required
+          name="year"
+          [(ngModel)]="year"
+          style="
+            width: 100px;
+            border: #050505 solid 2px;
+            border-radius: 10px;
+            --padding-start: 10px;
+            --padding-end: 10px
+          "
+          ></ion-input>
+      </div>
+
+      <div class="ion-padding">
+        <ion-label style="margin-inline-end: 10px;">Pick your Avatar:</ion-label>
+        <div
+          class="ion-padding"
+          style="
+            height: fit-content;
+            width: 100%;
+            max-width: 600px;
+            margin-inline: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            place-items: center;
+            gap: 10px;
+          "
+        >
+          <ion-avatar
+            *ngFor="let pics of profilePictures"
+            style="
+              height: 100px;
+              width: 100px;
+              border: #050505 solid 3px;
+              padding: 15px;
+              background-color: transparent;
+            "
+            (click)="selectAvatar(pics)"
+          >
+            <img
+              [src]="pics"
+              style="
+                height: 100%;
+                width: 100%;
+                border-radius: 0px;
+              "
+            />
+          </ion-avatar>
+        </div>
+      </div>
+
+      <ion-button
+        (click)="log()"
+        expand="block"
+        shape="round"
+        style="
+          --background: #4E63DD;
+          color: #FFF6F4;
+          font: 1.25rem bold;
+        "
+        class="ion-padding"
+      >
+        Create Profile
+      </ion-button>
+
+    </form>
+
+
+    <!-- <app-gender-pick [hidden]="displayCurrentDisp('gender')" ></app-gender-pick> -->
+    <!-- <app-birthday-selector [hidden]="displayCurrentDisp('bday')"></app-birthday-selector> -->
+    <!-- <app-input-details [hidden]="displayCurrentDisp('input')"></app-input-details> -->
+    <!-- <app-avatar-pick [hidden]="displayCurrentDisp('avatar')"></app-avatar-pick> -->
   </div>
 </ion-content>

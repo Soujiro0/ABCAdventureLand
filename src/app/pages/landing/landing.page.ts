@@ -17,4 +17,7 @@ export class LandingPage implements OnInit {
   goToRegister(){
     this.router.navigate(['/register']);
   }
+  goToAccounts() {
+    this.router.navigate(['/accounts']);
+  }
 }
