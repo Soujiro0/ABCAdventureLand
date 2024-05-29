@@ -1,0 +1,14 @@
+<ion-modal id="settingModal" #settingmodal [trigger]="trigger">
+  <ng-template>
+    <div class="container">
+      <ion-toolbar>
+        <ion-button fill="clear" slot="start" (click)="settingmodal.dismiss()">
+          <ion-icon src="../../../assets/icon/arrow-back-outline.svg"></ion-icon>
+        </ion-button>
+        <ion-title>Settings</ion-title>
+      </ion-toolbar>
+      <ion-toggle justify="space-between" [checked]="true">Music</ion-toggle>
+      <ion-range labelPlacement="stacked" label="Sounds"></ion-range>
+    </div>
+  </ng-template>
+</ion-modal>

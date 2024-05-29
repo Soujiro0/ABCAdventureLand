@@ -1,0 +1,123 @@
+ion-modal {
+    --backdrop-opacity: 0.5;
+    --background: #FFF6F4;
+    --border-color: #FFF6F4;
+    --border-radius: 30px;
+    --border-style: solid;
+    --border-width: 8px;
+    --height: 100%;
+    --max-height: 400px;
+    --max-width: 400px;
+    --min-height: 300px;
+    --min-width: 300px;
+    --width: 80%;
+
+    div.container {
+        height: 100%;
+        width: 100%;
+
+        ion-toolbar {
+            --background: #FFF6F4;
+            --border-color: #FFF6F4;
+            --border-style: solid;
+            --border-width: 8px;
+            --color: #000000;
+            --min-height: 56px;
+            --opacity: 1;
+            --padding-bottom: 4px;
+            --padding-end: 4px;
+            --padding-start: 4px;
+            --padding-top: 4px;
+
+            ion-button {
+                --background: #FFF6F4;
+                --background-activated: #FFF6F4;
+                --background-activated-opacity: 1;
+                --background-focused: #FFF6F4;
+                --background-focused-opacity: 1;
+                --background-hover: #FFF6F4;
+                --background-hover-opacity: 1;
+                --border-color: #FFF6F4;
+                --border-radius: 8px;
+                --border-style: solid;
+                --border-width: 8px;
+                --color: #FFF6F4;
+                --color-activated: #FFF6F4;
+                --color-focused: #FFF6F4;
+                --color-hover: #FFF6F4;
+                --opacity: 1;
+                --padding-bottom: 4px;
+                --padding-end: 4px;
+                --padding-start: 4px;
+                --padding-top: 4px;
+                --ripple-color: #1e1e1e;
+                --transition: background-color 15ms linear;
+                height: 50px;
+                width: 50px;
+
+                ion-icon {
+                    background: transparent;
+                    color: #000000;
+                    font-size: 30px;
+                }
+            }
+
+            ion-title {
+                --color: #000000;
+                text-align: center;
+                margin-right: 50px;
+                font-size: 2rem;
+            }
+        }
+
+        ion-toggle {
+            --background: #D9D9D9;
+            --background-checked: #D9D9D9;
+            --border-radius: 8px;
+            --handle-background: #505050;
+            --handle-background-checked: #525FE1;
+            --handle-border-radius: 50%;
+            --handle-height: 20px;
+            --handle-max-height: 24px;
+            --handle-spacing: 2px;
+            --handle-transition: background-color 15ms linear;
+            --handle-width: 20px;
+            --track-background: #D9D9D9;
+            --track-background-checked: #D9D9D9;
+            height: auto;
+            width: 80%;
+            display: block;
+            margin-top: 50px;
+            margin-inline: auto;
+            color: #000000;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        ion-toggle div.toggle-icon{
+            height: 50px;
+        }
+
+        ion-range {
+            --bar-background: #D9D9D9;
+            --bar-background-active: #525FE1;
+            --bar-border-radius: 4px;
+            --bar-height: 10px;
+            --height: 42px;
+            --knob-background: #525FE1;
+            --knob-border-radius: 50%;
+            --knob-box-shadow: none;
+            --knob-size: 30px;
+            --pin-background: {11: #3880ff};
+            --pin-color: {12: #3880ff};
+            height: auto;
+            width: 80%;
+            display: block;
+            margin-top: 50px;
+            margin-inline: auto;
+            color: #000000;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+    }
+}

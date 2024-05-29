@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>My Profile</ion-title>
-    <ion-button fill="clear" shape="round" slot="end">
+    <ion-button fill="clear" shape="round" slot="end" id="optionButton">
       <ion-icon src="../../../assets/icon/settings icon.svg"></ion-icon>
     </ion-button>
   </ion-toolbar>
@@ -31,7 +31,7 @@
     </div>
   </div>
 </ion-header>
-
+<app-options trigger="optionButton"></app-options>
 <ion-content [fullscreen]="true">
   <!--Contents-->
   <div class="label">
@@ -44,7 +44,7 @@
         <h1>Lesson 1</h1>
         <h1>100%</h1>
       </div>
-      <ion-progress-bar value="1"></ion-progress-bar> 
+      <ion-progress-bar value="1"></ion-progress-bar>
     </ion-card-content>
   </ion-card>
   <ion-card>
@@ -54,7 +54,7 @@
         <h1>Lesson 2</h1>
         <h1>100%</h1>
       </div>
-      <ion-progress-bar value="1"></ion-progress-bar> 
+      <ion-progress-bar value="1"></ion-progress-bar>
     </ion-card-content>
   </ion-card>
   <div class="label">
@@ -67,7 +67,7 @@
         <h1>Quiz 1</h1>
         <h1>100%</h1>
       </div>
-      <ion-progress-bar value="1"></ion-progress-bar> 
+      <ion-progress-bar value="1"></ion-progress-bar>
     </ion-card-content>
   </ion-card>
   <ion-card>
@@ -77,7 +77,7 @@
         <h1>Quiz 2</h1>
         <h1>100%</h1>
       </div>
-      <ion-progress-bar value="1"></ion-progress-bar> 
+      <ion-progress-bar value="1"></ion-progress-bar>
     </ion-card-content>
   </ion-card>
 </ion-content>

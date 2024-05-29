@@ -1,0 +1,15 @@
+<ion-modal id="logoutModal" #logoutprompt [trigger]="trigger">
+  <ng-template>
+      <div class="container">
+        <h1>Do you want to <br> log out your account?</h1>
+        <div>
+          <ion-button class="confirmed" fill="clear" shape="round" (click)="navigateToLanding()">
+            <ion-icon src="../../../assets/icon/checkmark.svg"></ion-icon>
+          </ion-button>
+          <ion-button class="close" id="close" fill="clear" shape="round" (click)="closeModal()">
+            <ion-icon src="../../../assets/icon/close.svg"></ion-icon>
+          </ion-button>
+        </div>
+      </div>
+  </ng-template>
+</ion-modal>

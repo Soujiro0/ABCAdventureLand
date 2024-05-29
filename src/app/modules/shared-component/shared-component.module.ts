@@ -6,6 +6,9 @@ import { BirthdaySelectorComponent } from 'src/app/components/birthday-selector/
 import { GenderPickComponent } from 'src/app/components/gender-pick/gender-pick.component';
 import { InputDetailsComponent } from 'src/app/components/input-details/input-details.component';
 import { LoadingComponent } from 'src/app/components/loading/loading.component';
+import { LogoutPromptComponent } from 'src/app/components/logout-prompt/logout-prompt.component';
+import { OptionsComponent } from 'src/app/components/options/options.component';
+import { SettingsComponent } from 'src/app/components/settings/settings.component';
 
 
 
@@ -16,6 +19,9 @@ import { LoadingComponent } from 'src/app/components/loading/loading.component';
     InputDetailsComponent,
     AvatarPickComponent,
     LoadingComponent,
+    OptionsComponent,
+    SettingsComponent,
+    LogoutPromptComponent
   ],
   imports: [
     CommonModule,
@@ -27,6 +33,9 @@ import { LoadingComponent } from 'src/app/components/loading/loading.component';
     InputDetailsComponent,
     AvatarPickComponent,
     LoadingComponent,
+    OptionsComponent,
+    SettingsComponent,
+    LogoutPromptComponent
   ],
 })
 export class SharedComponentModule { }

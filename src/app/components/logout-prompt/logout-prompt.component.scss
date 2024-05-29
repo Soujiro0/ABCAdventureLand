@@ -1,0 +1,81 @@
+ion-modal {
+    --backdrop-opacity: 0.5;
+    --background: #FFF6F4;
+    --border-color: #FFF6F4;
+    --border-radius: 30px;
+    --border-style: solid;
+    --border-width: 8px;
+    --height: 100%;
+    --max-height: 400px;
+    --max-width: 400px;
+    --min-height: 300px;
+    --min-width: 300px;
+    --width: 80%;
+
+    h1 {
+        text-align: center;
+        font-size: 30px;
+        font-weight: bold;
+        margin: 0;
+        padding: 20px;
+        color: #000000;
+        margin-top: 30px;
+    }
+
+    div.container > div {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        margin-block: 60px;
+
+        ion-button {
+            --border-radius: 8px;
+            --border-style: solid;
+            --border-width: 8px;
+            --box-shadow: 10px 10px;
+            --color: #ffffff;
+            --color-activated: #ffffff;
+            --color-focused: #ffffff;
+            --color-hover: #ffffff;
+            --opacity: 1;
+            --padding-bottom: 4px;
+            --padding-end: 4px;
+            --padding-start: 4px;
+            --padding-top: 4px;
+            --ripple-color: #1e1e1e;
+            --transition: background-color 15ms linear;
+            height: 100px;
+            width: 100px;
+
+            ion-icon {
+                background: transparent;
+                color: #ffffff;
+                font-size: 50px;
+                font-weight: bold;
+            }
+        }
+
+        ion-button.confirmed {
+            --background: #49ff38;
+            --background-activated: #49ff38;
+            --background-activated-opacity: 1;
+            --background-focused: #49ff38;
+            --background-focused-opacity: 1;
+            --background-hover: #49ff38;
+            --background-hover-opacity: 1;
+            --border-color: #49ff38;
+        }
+
+        ion-button.close {
+            --background: #ff3737;
+            --background-activated: #ff3737;
+            --background-activated-opacity: 1;
+            --background-focused: #ff3737;
+            --background-focused-opacity: 1;
+            --background-hover: #ff3737;
+            --background-hover-opacity: 1;
+            --border-color: #ff3737;
+        }
+    }
+}
