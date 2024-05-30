@@ -1,51 +1,93 @@
 import { Injectable } from '@angular/core';
-import { Letter } from '../models/letter';
+import { BehaviorSubject } from 'rxjs';
+import { Profile } from './../models/profile';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataProviderService {
-  public vowels : Letter[] = [];
-  public consonants : any[] =[];
+  // Adding private accounts variable as BehaviorSubject
+  private _accounts = new BehaviorSubject<Profile[]>([]);
+  // Getter for accounts
+  get accounts() {
+    return this._accounts.asObservable();
+  }
+
+  currentLoginProfile!: Profile;
 
   constructor() { }
 
-  generateVowels(){
-    this.vowels = [
-      new Letter('A', 'A' , 'a', 'assets/images/vowels/A.png', '', ''),
-      new Letter('E', 'E' , 'e', 'assets/images/vowels/E.png', '', ''),
-      new Letter('I', 'I' , 'i', 'assets/images/vowels/I.png', '', ''),
-      new Letter('O', 'O' , 'o', 'assets/images/vowels/O.png', '', ''),
-      new Letter('U', 'U' , 'u', 'assets/images/vowels/U.png', '', '')
-    ];
-    return this.vowels;
+  getAccountById() {}
+
+  async getAccounts() {
+    try {
+      // // dataRef: get the collection in firebase (The Integrated firestore, The name of collection in database)
+      // const dataRef: any = collection(this.firestore, 'anime-list');
+      // // Using getDocs(), passing the argument dataRef to query to database
+      // const querySnapshot = await getDocs(dataRef);
+
+      // const anime: Anime[] = await querySnapshot.docs.map((doc) => {
+      //   // Get Data one by one in variable item
+      //   let item: any = doc.data();
+      //   console.log(item);
+      //   item.id = doc.id;
+      //   return item;
+      // });
+      // this._animeList.next(anime);
+      return [];
+    } catch (e) {
+      throw(e);
+    }
   }
 
-  generateConsonants(){
-    this.consonants = [
-      new Letter('B', 'B' , 'b', 'assets/images/consonants/B.png', '', ''),
-      new Letter('C', 'C' , 'c', 'assets/images/consonants/C.png', '', ''),
-      new Letter('D', 'D' , 'd', 'assets/images/consonants/D.png', '', ''),
-      new Letter('F', 'F' , 'f', 'assets/images/consonants/F.png', '', ''),
-      new Letter('G', 'G' , 'g', 'assets/images/consonants/G.png', '', ''),
-      new Letter('H', 'H' , 'h', 'assets/images/consonants/H.png', '', ''),
-      new Letter('J', 'J' , 'j', 'assets/images/consonants/J.png', '', ''),
-      new Letter('K', 'K' , 'k', 'assets/images/consonants/K.png', '', ''),
-      new Letter('L', 'L' , 'l', 'assets/images/consonants/L.png', '', ''),
-      new Letter('M', 'M' , 'm', 'assets/images/consonants/M.png', '', ''),
-      new Letter('N', 'N' , 'n', 'assets/images/consonants/N.png', '', ''),
-      new Letter('P', 'P' , 'p', 'assets/images/consonants/P.png', '', ''),
-      new Letter('Q', 'Q' , 'q', 'assets/images/consonants/Q.png', '', ''),
-      new Letter('R', 'R' , 'r', 'assets/images/consonants/R.png', '', ''),
-      new Letter('S', 'S' , 's', 'assets/images/consonants/S.png', '', ''),
-      new Letter('T', 'T' , 't', 'assets/images/consonants/T.png', '', ''),
-      new Letter('V', 'V' , 'v', 'assets/images/consonants/V.png', '', ''),
-      new Letter('W', 'W' , 'w', 'assets/images/consonants/W.png', '', ''),
-      new Letter('X', 'X' , 'x', 'assets/images/consonants/X.png', '', ''),
-      new Letter('Y', 'Y' , 'y', 'assets/images/consonants/Y.png', '', ''),
-      new Letter('Z', 'Z' , 'z', 'assets/images/consonants/Z.png', '', '')
-    ];
-    return this.consonants;
+  async addProfile(profile: Profile) {
+    try {
+      // const dataRef: any = collection(this.firestore, 'anime-list');
+      // const response = await addDoc(dataRef, anime);
+      // const id = await response?.id;
+
+      // const currentAnimelist = this._animeList.value;
+      // const newId = id;
+      const currentAccounts = this._accounts.value;
+      const newId = (currentAccounts.length + 1).toString();
+      let newProfile: Profile[] = [{...profile, id: newId}];
+      newProfile = newProfile.concat(currentAccounts);
+      this._accounts.next(newProfile);
+      return profile;
+    } catch (e) {
+      throw(e);
+    }
+  }
+
+  async updateProfile(id: string, profile: any) {
+    try {
+      // const dataRef = await doc(this.firestore, `anime-list/${id}`);
+      // await updateDoc(dataRef, anime);
+
+      let currentAccounts = this._accounts.value;
+      const idx = currentAccounts.findIndex((x) => {
+        return x.id == id;
+      });
+      const latestData = {...profile, id};
+      currentAccounts[idx] = latestData;
+      this._accounts.next(currentAccounts);
+      return latestData;
+    } catch (e) {
+      throw(e);
+    }
+  }
+
+  async deleteProfile(id: string) {
+    try {
+      // const dataRef = await doc(this.firestore, `anime-list/${id}`);
+      // await deleteDoc(dataRef);
+
+      let currentAccounts = this._accounts.value;
+      currentAccounts = currentAccounts.filter(x => x.id != id);
+      this._accounts.next(currentAccounts);
+    } catch (e) {
+      throw(e);
+    }
   }
 
 }

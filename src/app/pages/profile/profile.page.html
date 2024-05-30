@@ -7,15 +7,15 @@
   </ion-toolbar>
   <div class="profile">
     <div class="imgProfile">
-      <img src="../../../assets/Yamada.jpg">
+      <img [src]="currentAccount.avatarImagePath">
     </div>
     <div class="nameProfile">
-      <h1>Anna Yamada</h1>
-      <ion-button fill="clear">
+      <h1>{{currentAccount.username}}</h1>
+      <ion-button fill="clear" id="edit-profile">
         <ion-icon src="../../../assets/icon/edit.svg"></ion-icon>
       </ion-button>
     </div>
-    <div class="average">
+    <div class="average">z
       <ion-card>
         <ion-card-content>
           <ion-card-title>100%</ion-card-title>
@@ -31,12 +31,216 @@
     </div>
   </div>
 </ion-header>
+
+<!--Profile Edit Modal-->
+<ion-modal #editProfile trigger="edit-profile">
+  <ng-template>
+
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button (click)="editProfile.dismiss()" expand="block" fill="clear" shape="round">
+            <ion-icon name="arrow-back-outline" style="font-size: 1.5rem;"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        <ion-title class="ion-text-center" style="margin: 0; margin-right: 50px;">Edit Profile</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="ion-padding">
+
+      <form #form="ngForm">
+
+        <!--Email Input-->
+        <div style="display: flex; align-items: center;" class="ion-padding">
+          <ion-label style="margin-inline-end: 10px;">Email:</ion-label>
+          <ion-input
+            type="text"
+            placeholder="Email"
+            required
+            name="email"
+            [(ngModel)]="model.email"
+            style="
+              border: #050505 solid 2px;
+              border-radius: 10px;
+              --padding-start: 10px;
+              --padding-end: 10px
+            "
+            ></ion-input>
+        </div>
+
+        <div style="display: flex; align-items: center;" class="ion-padding">
+          <ion-label style="margin-inline-end: 10px;">Password:</ion-label>
+          <ion-input
+            type="text"
+            placeholder="Password"
+            required
+            name="password"
+            [(ngModel)]="model.password"
+            style="
+              border: #050505 solid 2px;
+              border-radius: 10px;
+              --padding-start: 10px;
+              --padding-end: 10px
+            "
+            ></ion-input>
+        </div>
+
+        <!--Gender Radio Button-->
+        <ion-list style="background-color: #FFF6F4;">
+          <ion-radio-group name="gender" required value="boy" (ionChange)="selectedGender($event);" [(ngModel)]="model.gender" style="display: flex; flex-wrap: wrap; justify-content: center; background-color:#FFF6F4;">
+            <ion-list-header>
+              <ion-label style="font-size: 1rem; font-weight: bold; color: #050505;">Character For:</ion-label>
+            </ion-list-header>
+            <div class="gender-choices">
+              <img src="../../../assets/images/boy.png" alt="boy image" height="50">
+              <div>
+                <ion-radio value="boy"></ion-radio>
+              </div>
+            </div>
+            <div class="gender-choices">
+              <img src="../../../assets/images/girl.png" alt="girl image" height="50">
+              <div>
+                <ion-radio value="girl"></ion-radio>
+              </div>
+            </div>
+          </ion-radio-group>
+        </ion-list>
+
+        <div style="display: flex; align-items: center;" class="ion-padding">
+          <ion-label style="margin-inline-end: 10px;">Username:</ion-label>
+          <ion-input
+            type="text"
+            placeholder="Username"
+            required
+            name="username"
+            [(ngModel)]="model.username"
+            style="
+              border: #050505 solid 2px;
+              border-radius: 10px;
+              --padding-start: 10px;
+              --padding-end: 10px
+            "
+            ></ion-input>
+        </div>
+
+        <div style="display: flex; align-items: center;" class="ion-padding">
+          <ion-label style="margin-inline-end: 10px;">Birthday:</ion-label>
+          <ion-input
+            (keyup)="validateBirthday()"
+            type="tel"
+            [maxlength]="2"
+            placeholder="month"
+            required
+            name="month"
+            [(ngModel)]="month"
+            style="
+              width: 100px;
+              border: #050505 solid 2px;
+              border-radius: 10px;
+              --padding-start: 10px;
+              --padding-end: 10px
+            "
+            ></ion-input>
+            <span style="margin-inline: 20px; font-size: 1.5rem; font-weight: bold;">/</span>
+            <ion-input
+            (keyup)="validateBirthday()"
+            type="tel"
+            [maxlength]="2"
+            placeholder="day"
+            required
+            name="day"
+            [(ngModel)]="day"
+            style="
+              width: 100px;
+              border: #050505 solid 2px;
+              border-radius: 10px;
+              --padding-start: 10px;
+              --padding-end: 10px
+            "
+            ></ion-input>
+            <span style="margin-inline: 20px; font-size: 1.5rem; font-weight: bold;">/</span>
+            <ion-input
+            (keyup)="validateBirthday()"
+            type="tel"
+            [maxlength]="4"
+            placeholder="year"
+            required
+            name="year"
+            [(ngModel)]="year"
+            style="
+              width: 100px;
+              border: #050505 solid 2px;
+              border-radius: 10px;
+              --padding-start: 10px;
+              --padding-end: 10px
+            "
+            ></ion-input>
+        </div>
+
+        <div class="ion-padding">
+          <ion-label style="margin-inline-end: 10px;">Pick your Avatar:</ion-label>
+          <div
+            class="ion-padding"
+            style="
+              height: fit-content;
+              width: 100%;
+              max-width: 600px;
+              margin-inline: auto;
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              place-items: center;
+              gap: 10px;
+            "
+          >
+            <ion-avatar
+              *ngFor="let pics of profilePictures"
+              style="
+                height: 100px;
+                width: 100px;
+                border: #050505 solid 3px;
+                padding: 15px;
+                background-color: transparent;
+              "
+              (click)="selectAvatar(pics)"
+            >
+              <img
+                [src]="pics"
+                style="
+                  height: 100%;
+                  width: 100%;
+                  border-radius: 0px;
+                "
+              />
+            </ion-avatar>
+          </div>
+        </div>
+
+        <ion-button (click)="updateProfile(form)" expand="block" shape="round">
+          Save Changes
+        </ion-button>
+
+        <ion-button (click)="deleteProfile(currentAccount.id)" fill="outline" expand="block" shape="round" color="danger">
+          Delete Profile
+        </ion-button>
+
+      </form>
+
+    </ion-content>
+
+  </ng-template>
+</ion-modal>
+<!--End of Edit Profile Modal-->
+
 <app-options trigger="optionButton"></app-options>
+
 <ion-content [fullscreen]="true">
   <!--Contents-->
+
   <div class="label">
     <ion-title>Lectures</ion-title>
   </div>
+
   <ion-card>
     <img src="../../../assets/images/Lesson1Alphabets.png" alt="lesson 1 image">
     <ion-card-content>
@@ -47,6 +251,7 @@
       <ion-progress-bar value="1"></ion-progress-bar>
     </ion-card-content>
   </ion-card>
+
   <ion-card>
     <img src="../../../assets/images/Lesson2ReadingComprehension.png" alt="lesson 2 image">
     <ion-card-content>
@@ -57,9 +262,11 @@
       <ion-progress-bar value="1"></ion-progress-bar>
     </ion-card-content>
   </ion-card>
+
   <div class="label">
     <ion-title>Quizzes</ion-title>
   </div>
+
   <ion-card>
     <img src="../../../assets/images/Quiz1MatchingPairs.png" alt="quiz 1 image">
     <ion-card-content>
@@ -70,6 +277,7 @@
       <ion-progress-bar value="1"></ion-progress-bar>
     </ion-card-content>
   </ion-card>
+
   <ion-card>
     <img src="../../../assets/images/Quiz2FillintheBlanks.png" alt="quiz 2 image">
     <ion-card-content>
@@ -80,4 +288,9 @@
       <ion-progress-bar value="1"></ion-progress-bar>
     </ion-card-content>
   </ion-card>
+
+
+  <ion-button (click)="progress()" expand="block" fill="clear" shape="round">
+    Progress
+  </ion-button>
 </ion-content>

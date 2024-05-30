@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { DataProviderService } from 'src/app/services/data-provider.service';
 
 @Component({
   selector: 'app-register',
@@ -26,13 +28,10 @@ export class RegisterPage implements OnInit {
   year!: number;
   model: any = {}
 
-
-  constructor(private router : Router) { }
+  constructor(private router : Router, private data: DataProviderService) { }
 
   // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
-  ngOnInit() {
-
-  }
+  ngOnInit() { }
 
   selectedGender(event: Event) {
     const selectedValue = (event.target as HTMLIonRadioElement).value;
@@ -60,17 +59,51 @@ export class RegisterPage implements OnInit {
         alert('Exceeding to the number of Month');
       }
     }
-    console.log('This method is called');
   }
 
   selectAvatar(profileImagePath: string) {
     this.model.avatarImagePath = profileImagePath;
   }
 
-  log() {
-    if (this.model != null) {
+  addAccount(form: NgForm) {
+    if (!form.valid) {
+      alert('Please fill all the fields');
+    } else {
+      this.model.progress = [
+        {
+          lessons: [
+            {
+              lessonNo: 1,
+              items: Array.from({ length: 26 }, (_, i) => ({
+                itemNo: i + 1,
+                isFinished: false
+              }))
+            },
+            {
+              lessonNo: 2,
+              items: Array.from({ length: 10 }, (_, i) => ({
+                itemNo: i + 1,
+                isFinished: false
+              }))
+            }
+          ]
+        },
+        {
+          quizzes: [
+            {
+              quizNo: 1,
+              isFinished: false
+            },
+            {
+              quizNo: 2,
+              isFinished: true
+            }
+          ]
+        }
+      ];
+      this.data.addProfile(this.model);
       console.log(this.model);
-      this.router.navigateByUrl('tabs/lectures');
+      this.router.navigateByUrl('accounts');
     }
   }
 }

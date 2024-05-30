@@ -33,7 +33,7 @@ ion-toolbar {
         --transition: background-color 15ms linear;
         height: 50px;
         width: 50px;
-        
+
         ion-icon {
             font-size: 40px;
         }
@@ -43,16 +43,19 @@ div.profile {
     background-color: #FFF6F4;
     max-height: 400px;
     width: 100%;
+    padding-top: 10px;
 
     div.imgProfile {
-        height: 200px;
-        width: 200px;
+        height: 150px;
+        width: 150px;
         margin-inline: auto;
-        padding-top: 5px;
+        border:#4E63DD solid 5px;
+        border-radius: 50%;
+        padding: 20px;
 
         img {
-            border:#4E63DD solid 10px;
-            border-radius: 50%;
+            object-fit: contain;
+            object-position: center;
         }
     }
 
@@ -70,7 +73,7 @@ div.profile {
             margin-block: 0;
             margin-left: 30px;
         }
-        
+
         ion-button {
             --color: #000000;
             --color-activated: #000000;
@@ -163,5 +166,25 @@ ion-content {
             border-radius: 10px;
             margin-bottom: 10px;
         }
+    }
+
+    .gender-choices {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .gender-choices img {
+      height: 75px;
+      width: 75px;
+      margin: 20px;
+    }
+
+    ion-radio {
+      --border-radius: 10px;
+      --color: #9C9C9C;
+      --color-checked: #FDA12E;
+      --inner-border-radius: 10px;
     }
 }

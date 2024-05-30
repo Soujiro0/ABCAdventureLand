@@ -20,7 +20,7 @@
           placeholder="Email"
           required
           name="email"
-          [(ngModel)]="model.name"
+          [(ngModel)]="model.email"
           style="
             border: #050505 solid 2px;
             border-radius: 10px;
@@ -47,9 +47,9 @@
           ></ion-input>
       </div>
 
-            <!--Gender Radio Button-->
+      <!--Gender Radio Button-->
       <ion-list style="background-color: #FFF6F4;">
-        <ion-radio-group name="gender" value="boy" (ionChange)="selectedGender($event)" [(ngModel)]="model.gender" style="display: flex; flex-wrap: wrap; justify-content: center; background-color:#FFF6F4;">
+        <ion-radio-group name="gender" required value="boy" (ionChange)="selectedGender($event)" [(ngModel)]="model.gender" style="display: flex; flex-wrap: wrap; justify-content: center; background-color:#FFF6F4;">
           <ion-list-header>
             <ion-label style="font-size: 1rem; font-weight: bold; color: #050505;">Character For:</ion-label>
           </ion-list-header>
@@ -178,13 +178,15 @@
       </div>
 
       <ion-button
-        (click)="log()"
+        (click)="addAccount(form)"
         expand="block"
         shape="round"
         style="
           --background: #4E63DD;
           color: #FFF6F4;
-          font: 1.25rem bold;
+          font-size: 1.2rem;
+          font-family: Arial;
+          font-weight: bold;
         "
         class="ion-padding"
       >
