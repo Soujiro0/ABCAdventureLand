@@ -6,47 +6,34 @@
 
 <ion-content [fullscreen]="true">
 
-<ion-grid>
+  <ion-grid *ngIf="lessons.length > currentLessonIndex">
+    <ion-row>
+      <ion-col class="object1">
+        <img [src]="'../../../../assets/images/lessonTwo/' + lessons[currentLessonIndex].object" alt="object1">
+      </ion-col>
+    </ion-row>
 
-<ion-row>
-<ion-col class="object1">
-<img src="../../../../assets/images/lessonTwo/rainbow.png" alt="object1">
-</ion-col>
-</ion-row>
+    <ion-row>
+      <ion-col>
+        <h2 class="sentence">
+          {{lessons[currentLessonIndex].sentence}}
+        </h2>
+      </ion-col>
+    </ion-row>
 
-<ion-row>
-  <ion-col>
-    <h2 class="sentence">
-      The colorful <span>rainbow</span> 
-      is in the sky. It gives us light and warmth.
-    </h2>
-  </ion-col>
-</ion-row>
+    <ion-row>
+      <ion-col>
+        <h2 class="question">
+          {{lessons[currentLessonIndex].question}}
+        </h2>
+      </ion-col>
+    </ion-row>
 
-<ion-row>
-  <ion-col>
-    <h2 class="question">
-      What is in the sky?
-    </h2>
-  </ion-col>
-</ion-row>
-
-<ion-row class="choices">
-  <ion-col>
-    <img src="../../../../assets/images/lessonTwoChoices/rainbow.png" alt="choices1">
-  </ion-col>
-</ion-row>
-<ion-row class="choices">
-  <ion-col>
-    <img src="../../../../assets/images/lessonTwoChoices/sun.png" alt="choices1">
-  </ion-col>
-</ion-row>
-<ion-row class="choices">
-  <ion-col>
-    <img src="../../../../assets/images/lessonTwoChoices/clouds.png" alt="choices1">
-  </ion-col>
-</ion-row>
-
-</ion-grid>
+    <ion-row class="choices" *ngFor="let choice of lessons[currentLessonIndex].choices">
+      <ion-col (click)="onChoiceClick()">
+        <img [src]="choice.imgPath" [alt]="choice.choice">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>
