@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
+import { CheckOverlayComponent } from '../../../components/check-overlay/check-overlay.component';
 
 @Component({
   selector: 'app-lesson-two',
@@ -14,9 +15,9 @@ export class LessonTwoPage implements OnInit {
       sentence: 'The colorful rainbow is in the sky. It gives us light and warmth.',
       question: 'What is in the sky?',
       choices: [
-        { choice: 'rainbow', imgPath: '../../../../assets/images/lessonTwoChoices/rainbow.png' },
-        { choice: 'sun', imgPath: '../../../../assets/images/lessonTwoChoices/sun.png' },
-        { choice: 'clouds', imgPath: '../../../../assets/images/lessonTwoChoices/clouds.png' }
+        { choice: 'rainbow', imgPath: '../../../../assets/images/lessonTwoChoices/rainbow.png', isCorrect: true },
+        { choice: 'sun', imgPath: '../../../../assets/images/lessonTwoChoices/sun.png', isCorrect: false },
+        { choice: 'clouds', imgPath: '../../../../assets/images/lessonTwoChoices/clouds.png', isCorrect: false }
       ]
     },
     {
@@ -24,9 +25,9 @@ export class LessonTwoPage implements OnInit {
       sentence: 'The colorful rainbow is in the sky. It gives us light and warmth.',
       question: 'What does it give us?',
       choices: [
-        { choice: 'color', imgPath: '../../../../assets/images/lessonTwoChoices/colors.png' },
-        { choice: 'light', imgPath: '../../../../assets/images/lessonTwoChoices/light.png' },
-        { choice: 'rain', imgPath: '../../../../assets/images/lessonTwoChoices/rain.png' }
+        { choice: 'color', imgPath: '../../../../assets/images/lessonTwoChoices/colors.png', isCorrect: false },
+        { choice: 'light', imgPath: '../../../../assets/images/lessonTwoChoices/light.png', isCorrect: true },
+        { choice: 'rain', imgPath: '../../../../assets/images/lessonTwoChoices/rain.png', isCorrect: false }
       ]
     },
     {
@@ -34,9 +35,9 @@ export class LessonTwoPage implements OnInit {
       sentence: 'The beautiful flower blooms in the garden. It smells sweet.',
       question: 'What is blooming in the garden?',
       choices: [
-        { choice: 'tree', imgPath: '../../../../assets/images/lessonTwoChoices/tree.png' },
-        { choice: 'grass', imgPath: '../../../../assets/images/lessonTwoChoices/grass.png' },
-        { choice: 'flower', imgPath: '../../../../assets/images/lessonTwoChoices/flowers.png' }
+        { choice: 'tree', imgPath: '../../../../assets/images/lessonTwoChoices/tree.png', isCorrect: false },
+        { choice: 'grass', imgPath: '../../../../assets/images/lessonTwoChoices/grass.png', isCorrect: false },
+        { choice: 'flower', imgPath: '../../../../assets/images/lessonTwoChoices/flowers.png', isCorrect: true }
       ]
     },
     {
@@ -44,9 +45,9 @@ export class LessonTwoPage implements OnInit {
       sentence: 'The beautiful flower blooms in the garden. It smells sweet.',
       question: 'What does the flower smell like?',
       choices: [
-        { choice: 'fresh', imgPath: '../../../../assets/images/lessonTwoChoices/fresh.png' },
-        { choice: 'sweet', imgPath: '../../../../assets/images/lessonTwoChoices/sweet.png' },
-        { choice: 'fragrant', imgPath: '../../../../assets/images/lessonTwoChoices/fragrant.png' }
+        { choice: 'fresh', imgPath: '../../../../assets/images/lessonTwoChoices/fresh.png', isCorrect: false },
+        { choice: 'sweet', imgPath: '../../../../assets/images/lessonTwoChoices/sweet.png', isCorrect: true },
+        { choice: 'fragrant', imgPath: '../../../../assets/images/lessonTwoChoices/fragrant.png', isCorrect: false }
       ]
     },
     {
@@ -54,9 +55,9 @@ export class LessonTwoPage implements OnInit {
       sentence: 'The playful puppy runs in the park. It makes us smile.',
       question: 'What is running in the park?',
       choices: [
-        { choice: 'kitten', imgPath: '../../../../assets/images/lessonTwoChoices/kitten.png' },
-        { choice: 'puppy', imgPath: '../../../../assets/images/lessonTwoChoices/puppy.png' },
-        { choice: 'rabbit', imgPath: '../../../../assets/images/lessonTwoChoices/rabbit.png' }
+        { choice: 'kitten', imgPath: '../../../../assets/images/lessonTwoChoices/kitten.png', isCorrect: false },
+        { choice: 'puppy', imgPath: '../../../../assets/images/lessonTwoChoices/puppy.png', isCorrect: true },
+        { choice: 'rabbit', imgPath: '../../../../assets/images/lessonTwoChoices/rabbit.png', isCorrect: false }
       ]
     },
     {
@@ -64,9 +65,9 @@ export class LessonTwoPage implements OnInit {
       sentence: 'The playful puppy runs in the park. It makes us smile.',
       question: 'What does the puppy make us do?',
       choices: [
-        { choice: 'laugh', imgPath: '../../../../assets/images/lessonTwoChoices/laugh.png' },
-        { choice: 'cry', imgPath: '../../../../assets/images/lessonTwoChoices/cry.png' },
-        { choice: 'smile', imgPath: '../../../../assets/images/lessonTwoChoices/smile.png' }
+        { choice: 'laugh', imgPath: '../../../../assets/images/lessonTwoChoices/laugh.png', isCorrect: false },
+        { choice: 'cry', imgPath: '../../../../assets/images/lessonTwoChoices/cry.png', isCorrect: false },
+        { choice: 'smile', imgPath: '../../../../assets/images/lessonTwoChoices/smile.png', isCorrect: true }
       ]
     },
     {
@@ -74,9 +75,9 @@ export class LessonTwoPage implements OnInit {
       sentence: 'The fast car zooms down the road. It honks loudly. People cover their ears.',
       question: 'What is fast?',
       choices: [
-        { choice: 'bus', imgPath: '../../../../assets/images/lessonTwoChoices/bus.png' },
-        { choice: 'car', imgPath: '../../../../assets/images/lessonTwoChoices/car.png' },
-        { choice: 'bike', imgPath: '../../../../assets/images/lessonTwoChoices/bike.png' }
+        { choice: 'bus', imgPath: '../../../../assets/images/lessonTwoChoices/bus.png', isCorrect: false },
+        { choice: 'car', imgPath: '../../../../assets/images/lessonTwoChoices/car.png', isCorrect: true },
+        { choice: 'bike', imgPath: '../../../../assets/images/lessonTwoChoices/bike.png', isCorrect: false }
       ]
     },
     {
@@ -84,9 +85,9 @@ export class LessonTwoPage implements OnInit {
       sentence: 'The fast car zooms down the road. It honks loudly. People cover their ears.',
       question: 'What do people cover?',
       choices: [
-        { choice: 'ears', imgPath: '../../../../assets/images/lessonTwoChoices/ears.png' },
-        { choice: 'mouth', imgPath: '../../../../assets/images/lessonTwoChoices/mouth.png' },
-        { choice: 'eyes', imgPath: '../../../../assets/images/lessonTwoChoices/eyes.png' }
+        { choice: 'ears', imgPath: '../../../../assets/images/lessonTwoChoices/ears.png', isCorrect: true },
+        { choice: 'mouth', imgPath: '../../../../assets/images/lessonTwoChoices/mouth.png', isCorrect: false },
+        { choice: 'eyes', imgPath: '../../../../assets/images/lessonTwoChoices/eyes.png', isCorrect: false }
       ]
     },
     {
@@ -94,9 +95,9 @@ export class LessonTwoPage implements OnInit {
       sentence: 'The big elephant trumpets loudly. It sprays water and the children would laugh.',
       question: 'What do children do?',
       choices: [
-        { choice: 'smile', imgPath: '../../../../assets/images/lessonTwoChoices/smile.png' },
-        { choice: 'cry', imgPath: '../../../../assets/images/lessonTwoChoices/cry.png' },
-        { choice: 'laugh', imgPath: '../../../../assets/images/lessonTwoChoices/laugh.png' }
+        { choice: 'smile', imgPath: '../../../../assets/images/lessonTwoChoices/smile.png', isCorrect: false },
+        { choice: 'cry', imgPath: '../../../../assets/images/lessonTwoChoices/cry.png', isCorrect: false },
+        { choice: 'laugh', imgPath: '../../../../assets/images/lessonTwoChoices/laugh.png', isCorrect: true }
       ]
     },
     {
@@ -104,25 +105,34 @@ export class LessonTwoPage implements OnInit {
       sentence: 'The big elephant trumpets loudly. It sprays water and the children would laugh.',
       question: 'What does it spray?',
       choices: [
-        { choice: 'rain', imgPath: '../../../../assets/images/lessonTwoChoices/rain.png' },
-        { choice: 'water', imgPath: '../../../../assets/images/lessonTwoChoices/water.png' },
-        { choice: 'tears', imgPath: '../../../../assets/images/lessonTwoChoices/tears.png' }
+        { choice: 'rain', imgPath: '../../../../assets/images/lessonTwoChoices/rain.png', isCorrect: false },
+        { choice: 'water', imgPath: '../../../../assets/images/lessonTwoChoices/water.png', isCorrect: true },
+        { choice: 'tears', imgPath: '../../../../assets/images/lessonTwoChoices/tears.png', isCorrect: false }
       ]
     }
   ];
 
-  constructor(private router: Router) { }
+  constructor(private modalController: ModalController) { }
 
-  // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  onChoiceClick() {
-    if (this.currentLessonIndex < this.lessons.length - 1) {
-      this.currentLessonIndex++;
-    } else {
-      // Handle the end of lessons
-      console.log('All lessons completed');
+  async onChoiceClick(isCorrect: boolean) {
+    const modal = await this.modalController.create({
+      component: CheckOverlayComponent,
+      cssClass: 'bottom-sheet-modal',
+      componentProps: { isCorrect },
+      showBackdrop: false,
+      backdropDismiss: false
+    });
+    await modal.present();
+    const { data } = await modal.onDidDismiss();
+
+    if (data) {
+      if (this.currentLessonIndex < this.lessons.length - 1) {
+        this.currentLessonIndex++;
+      } else {
+        console.log('All lessons completed');
+      }
     }
   }
 }

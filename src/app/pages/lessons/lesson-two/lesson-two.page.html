@@ -30,7 +30,7 @@
     </ion-row>
 
     <ion-row class="choices" *ngFor="let choice of lessons[currentLessonIndex].choices">
-      <ion-col (click)="onChoiceClick()">
+      <ion-col (click)="onChoiceClick(choice.isCorrect)">
         <img [src]="choice.imgPath" [alt]="choice.choice">
       </ion-col>
     </ion-row>

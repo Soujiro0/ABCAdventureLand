@@ -1,0 +1,28 @@
+.overlay-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+    font-size: 1.5em;
+    color: #000;
+    background-color: #fff;
+    text-align: center;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    height: 100%;
+  
+    ion-icon {
+      font-size: 3em;
+      margin-right: 0.5em;
+    }
+  
+    .correct {
+      color: #28a745; /* Green for correct */
+    }
+  
+    .wrong {
+      color: #dc3545; /* Red for wrong */
+    }
+  }
+  
