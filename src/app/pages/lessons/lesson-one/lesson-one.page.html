@@ -14,10 +14,10 @@
     </ion-segment-button>
   </ion-segment>
 
-  <div class="grid" *ngIf="displayContent() === 'vowels'" >
-    <img [src]="letter.letterImgPath" *ngFor="let letter of vowels">
+  <div class="grid" *ngIf="displayContent() === 'vowels'">
+    <img [src]="letter.letterImgPath" *ngFor="let letter of vowels" (click)="openLessonOnePlay(letter)">
   </div>
-  <div class="grid" *ngIf="displayContent() === 'consonants'" >
-    <img [src]="letter.letterImgPath" *ngFor="let letter of consonants">
+  <div class="grid" *ngIf="displayContent() === 'consonants'">
+    <img [src]="letter.letterImgPath" *ngFor="let letter of consonants" (click)="openLessonOnePlay(letter)">
   </div>
 </ion-content>

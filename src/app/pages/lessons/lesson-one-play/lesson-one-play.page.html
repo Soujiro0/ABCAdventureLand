@@ -7,34 +7,35 @@
 <ion-content [fullscreen]="true">
   <ion-text>
     <h1>
-      Aa
+      {{ selectedLetter?.letter }}
     </h1>
   </ion-text>
 
   <ion-grid>
     <ion-row>
       <ion-col class="object1">
-        <img src="../../../../assets/lessonOnePlayObjects/apple.png" alt="object1">
-        <h3>Apple</h3>
-        <h3><span>Ah</span>-<span>Puhl</span></h3>
+        <img [src]="selectedLetter?.letterImgPath" alt="object1">
+        <h3>{{ selectedLetter?.objectName }}</h3>
+        <h3>
+          <ng-container *ngFor="let part of getPronunciationParts(selectedLetter?.pronunciation); let i = index">
+            <span [class.red]="i === 0">{{ part }}</span><span *ngIf="i < getPronunciationParts(selectedLetter?.pronunciation).length - 1">-</span>
+          </ng-container>
+        </h3>
       </ion-col>
     </ion-row>
 
     <ion-row class="button-row">
-      <ion-col></ion-col>
-      <ion-col class="previous">
+      <ion-col class="previous" (click)="previousLetter()">
         <img src="../../../../assets/icon/playpreviousButton (1).svg" alt="previous">
       </ion-col>
 
-      <ion-col class="play">
+      <ion-col class="play" (click)="playAudio()">
         <img src="../../../../assets/icon/playButton.svg" alt="play">
       </ion-col>
 
-      <ion-col class="next">
+      <ion-col class="next" (click)="nextLetter()">
         <img src="../../../../assets/icon/playnextButton (1).svg" alt="next">
       </ion-col>
-      <ion-col></ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
-
