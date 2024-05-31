@@ -113,6 +113,7 @@ export class LessonTwoPage implements OnInit {
 
   constructor(private router: Router) { }
 
+  // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
   ngOnInit() {
   }
 
