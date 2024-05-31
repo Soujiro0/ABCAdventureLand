@@ -27,20 +27,6 @@ ion-content {
     --background: #FFF6F4;
     --color: #000000;
 
-    div.label {
-        height: auto;
-        max-width: 500px;
-        margin-inline: auto;
-        margin-block: 20px;
-
-        ion-title {
-            --color: #000000;
-            font-size: 2rem;
-            font-weight: bold;
-            padding: 0;
-        }
-    }
-
     ion-card {
         --background: #FDA12E;
         --color: #000000;
