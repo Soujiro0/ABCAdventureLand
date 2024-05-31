@@ -1,10 +1,8 @@
-
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/quizzes"></ion-back-button>
-    </ion-buttons>
-  </ion-toolbar>
-
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref="/tabs/quizzes"></ion-back-button>
+  </ion-buttons>
+</ion-toolbar>
 
 <ion-content [fullscreen]="true">
 
@@ -14,30 +12,30 @@
     </h2>
   </ion-text>
 
-  <img src="../../../../assets/images/pig.png" class="illustration">
+  <img [src]="quizzes[currentQuizIndex].illustration" class="illustration">
 
   <ion-grid>
     <ion-row>
-      <ion-col class="letterOne">P</ion-col>
-      <ion-col class="letterTwo">___</ion-col>
-      <ion-col class="letterThree">G</ion-col>
+      <ion-col class="letterOne">{{quizzes[currentQuizIndex].letters.letter1}}</ion-col>
+      <ion-col class="letterTwo">{{quizzes[currentQuizIndex].letters.letter2}}</ion-col>
+      <ion-col class="letterThree">{{quizzes[currentQuizIndex].letters.letter3}}</ion-col>
     </ion-row>
   </ion-grid>
 
   <ion-grid>
     <ion-row>
-      <ion-col class="choice" size="12">
-        <img src="../../../../assets/images/quiz-choices/capsA-inactive.png" alt="Choice 1">
+      <ion-col class="choice" size="12" (click)="onChoiceClick()">
+        <img [src]="quizzes[currentQuizIndex].choices[0]" alt="Choice 1">
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col class="choice" size="12">
-        <img src="../../../../assets/images/quiz-choices/capsE-inactive.png" alt="Choice 2">
+      <ion-col class="choice" size="12" (click)="onChoiceClick()">
+        <img [src]="quizzes[currentQuizIndex].choices[1]" alt="Choice 2">
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col class="choice" size="12">
-        <img src="../../../../assets/images/quiz-choices/capsI-inactive.png" alt="Choice 3">
+      <ion-col class="choice" size="12" (click)="onChoiceClick()">
+        <img [src]="quizzes[currentQuizIndex].choices[2]" alt="Choice 3">
       </ion-col>
     </ion-row>
   </ion-grid>

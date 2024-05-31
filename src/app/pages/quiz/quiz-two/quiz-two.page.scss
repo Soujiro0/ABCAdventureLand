@@ -17,54 +17,50 @@ ion-content {
 }
 
 ion-text {
-    display: flex;
-    justify-content: center;
-  }
+  display: flex;
+  justify-content: center;
+}
   
-  h2 {
-    color: #000000;
-    font-size: 1.5em;
-    font-weight: medium;
-    margin: 0;
-    text-align: center; 
-    padding: 30px 10px 0; 
-  }
+h2 {
+  color: #000000;
+  font-size: 1.5em;
+  font-weight: medium;
+  margin: 0;
+  text-align: center; 
+  padding: 30px 10px 0; 
+}
 
-  .illustration {
-    max-width: 250px;
-    width: 100%; 
-    margin: 15px auto; 
-    display: block; 
-  }
+.illustration {
+  max-width: 250px;
+  width: 100%; 
+  margin: 15px auto; 
+  display: block; 
+}
 
-  .letterOne, .letterTwo, .letterThree {
-    font-size: 2em;
-    display: flex;
-    align-items: center; 
-  }
+.letterOne, .letterTwo, .letterThree {
+  font-size: 2em;
+  display: flex;
+  align-items: center; 
+}
   
-  .letterOne {
-    justify-content: flex-end; 
-  }
+.letterOne {
+  justify-content: flex-end; 
+}
   
-  .letterTwo {
-    justify-content: center;
-  }
+.letterTwo {
+  justify-content: center;
+}
   
-  .letterThree {
-    justify-content: flex-start;
-  }
+.letterThree {
+  justify-content: flex-start;
+}
 
-  .choice {
-    display: flex;
-    justify-content: center;
-    padding: 15px;
-  }
+.choice {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+}
   
-  .choice img {
-    width: 90px;
-  }
-  
-
-
-  
+.choice img {
+  width: 90px;
+}
