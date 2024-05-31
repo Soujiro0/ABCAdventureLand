@@ -24,18 +24,18 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col class="choice" size="12" (click)="onChoiceClick()">
-        <img [src]="quizzes[currentQuizIndex].choices[0]" alt="Choice 1">
+      <ion-col class="choice" size="12" (click)="onChoiceClick(quizzes[currentQuizIndex].choices[0].isCorrect)">
+        <img [src]="quizzes[currentQuizIndex].choices[0].imgPath" alt="Choice 1">
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col class="choice" size="12" (click)="onChoiceClick()">
-        <img [src]="quizzes[currentQuizIndex].choices[1]" alt="Choice 2">
+      <ion-col class="choice" size="12" (click)="onChoiceClick(quizzes[currentQuizIndex].choices[1].isCorrect)">
+        <img [src]="quizzes[currentQuizIndex].choices[1].imgPath" alt="Choice 2">
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col class="choice" size="12" (click)="onChoiceClick()">
-        <img [src]="quizzes[currentQuizIndex].choices[2]" alt="Choice 3">
+      <ion-col class="choice" size="12" (click)="onChoiceClick(quizzes[currentQuizIndex].choices[2].isCorrect)">
+        <img [src]="quizzes[currentQuizIndex].choices[2].imgPath" alt="Choice 3">
       </ion-col>
     </ion-row>
   </ion-grid>
