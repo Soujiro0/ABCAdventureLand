@@ -104,7 +104,7 @@ export class ProfilePage implements OnInit {
   }
 
   progress() {
-    this.currentAccount.progress![0].lessons[0].items[0].isFinished = true;
+    this.currentAccount.progress![1].quizzes[0].items[0].isFinished = true;
   }
 
   updateProfile(form: NgForm) {

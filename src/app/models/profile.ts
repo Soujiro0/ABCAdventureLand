@@ -10,22 +10,41 @@ export interface Profile {
       {
         lessons: [
           {
-            lessonNo: number,
+            lessonNo: 1,
             items: [
               {
-                itemNo: number,
-                isFinished: boolean
+                isFinished: boolean;
               }
             ]
-          }
+          },
+          {
+            lessonNo: 2,
+            items: [
+              {
+                isFinished: boolean;
+              }
+            ]
+          },
         ]
       },
       {
         quizzes: [
           {
-            quizNo: number,
-            isFinished: boolean
-          }
+            quizNo: 1,
+            items: [
+              {
+                isFinished: boolean;
+              }
+            ]
+          },
+          {
+            quizNo: 2,
+            items: [
+              {
+                isFinished: boolean;
+              }
+            ]
+          },
         ]
       }
   ]

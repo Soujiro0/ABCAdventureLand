@@ -74,15 +74,13 @@ export class RegisterPage implements OnInit {
           lessons: [
             {
               lessonNo: 1,
-              items: Array.from({ length: 26 }, (_, i) => ({
-                itemNo: i + 1,
+              items: Array.from({ length: 26 }, () => ({
                 isFinished: false
               }))
             },
             {
               lessonNo: 2,
-              items: Array.from({ length: 10 }, (_, i) => ({
-                itemNo: i + 1,
+              items: Array.from({ length: 10 }, () => ({
                 isFinished: false
               }))
             }
@@ -92,11 +90,15 @@ export class RegisterPage implements OnInit {
           quizzes: [
             {
               quizNo: 1,
-              isFinished: false
+              items: Array.from({ length: 10 }, () => ({
+                isFinished: false
+              }))
             },
             {
               quizNo: 2,
-              isFinished: true
+              items: Array.from({ length: 10 }, () => ({
+                isFinished: false
+              }))
             }
           ]
         }

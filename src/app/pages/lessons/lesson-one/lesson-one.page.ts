@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Letter } from 'src/app/models/letter';
 import { DataProviderService } from 'src/app/services/data-provider.service';
 
+
 @Component({
   selector: 'app-lesson-one',
   templateUrl: './lesson-one.page.html',
