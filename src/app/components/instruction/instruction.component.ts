@@ -12,6 +12,7 @@ export class InstructionComponent implements OnInit {
   lessonTitle!: string;
   lessonDescription!: string;
   instructions!: string;
+  imgObjectPath!: string;
 
   constructor(public modalController: ModalController, private router: Router) {}
 
@@ -24,10 +25,22 @@ export class InstructionComponent implements OnInit {
       this.lessonTitle = 'Lesson 1';
       this.lessonDescription = 'Find matching pairs of letters!';
       this.instructions = 'Tap one card, then another to find the matching pair of letters. Keep matching until you\'ve paired them all!';
+      this.imgObjectPath = '../../../assets/images/instruction/instructionl1object.png';
     } else if (this.lesson === 'lesson-two') {
       this.lessonTitle = 'Lesson 2';
       this.lessonDescription = 'Reading Comprehension';
       this.instructions = 'Read the statement carefully, then choose the right word from the options provided to complete the sentence.';
+      this.imgObjectPath = '../../../assets/images/instruction/instructionl2object.png';
+    } else if (this.lesson === 'quiz-one') {
+      this.lessonTitle = 'QUIZ 1';
+      this.lessonDescription = 'Find matching pairs of letters!';
+      this.instructions = 'Tap one card, then another to find the matching pair of letters. Keep matching until you\'ve paired them all!';
+      this.imgObjectPath = '../../../assets/images/instruction/instructionq1object.png';
+    } else if (this.lesson === 'quiz-two') {
+      this.lessonTitle = 'QUIZ 2';
+      this.lessonDescription = 'Fill in the blank!';
+      this.instructions = 'Choose the letter that matches the missing one. Select the correct letter to complete the sequence.';
+      this.imgObjectPath = '../../../assets/images/instruction/instructionq2object.png';
     }
   }
 
@@ -36,6 +49,10 @@ export class InstructionComponent implements OnInit {
       this.router.navigate(['/lesson-one']);
     } else if (this.lesson === 'lesson-two') {
       this.router.navigate(['/lesson-two']);
+    } else if (this.lesson === 'quiz-one') {
+      this.router.navigate(['/quiz-one']);
+    } else if (this.lesson === 'quiz-two') {
+      this.router.navigate(['/quiz-two']);
     }
     this.modalController.dismiss();
   }

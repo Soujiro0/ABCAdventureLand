@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { InstructionComponent } from '../../components/instruction/instruction.component';
 
 @Component({
   selector: 'app-quizzes',
@@ -7,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuizzesPage implements OnInit {
 
-  constructor() { }
+  constructor(private modalController: ModalController) { }
 
-  ngOnInit() {
-    return 0;
+  ngOnInit() { }
+
+  async openInstruction(lesson: string) {
+    const modal = await this.modalController.create({
+      component: InstructionComponent,
+      componentProps: { lesson: lesson }
+    });
+    return await modal.present();
   }
-
 }

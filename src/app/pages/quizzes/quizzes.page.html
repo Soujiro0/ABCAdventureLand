@@ -1,27 +1,21 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-  <ion-title>Quizzes</ion-title>
+    <ion-title>Quizzes</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <a [routerLink]="'/quiz-one'">
-    <ion-card>
-      <img src="../../../assets/images/Quiz1MatchingPairs.png" alt="quiz 1 image">
-      <ion-card-content>
-        <ion-card-title>Matching Pairs</ion-card-title>
-      </ion-card-content>
-    </ion-card>
-  </a>
-
-  <a [routerLink]="'/quiz-two'">
-  <ion-card>
-    <img src="../../../assets/images/Quiz2FillintheBlanks.png" alt="quiz 1 image">
+  <ion-card (click)="openInstruction('quiz-one')">
+    <img src="../../../assets/images/Quiz1MatchingPairs.png" alt="quiz 1 image">
     <ion-card-content>
-      <div>
-        <ion-card-title>Fill in the Blanks</ion-card-title>
-      </div>
+      <ion-card-title>Matching Pairs</ion-card-title>
     </ion-card-content>
   </ion-card>
-  </a>
+
+  <ion-card (click)="openInstruction('quiz-two')">
+    <img src="../../../assets/images/Quiz2FillintheBlanks.png" alt="quiz 2 image">
+    <ion-card-content>
+      <ion-card-title>Fill in the Blanks</ion-card-title>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
