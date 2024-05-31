@@ -1,50 +1,46 @@
-
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/quizzes"></ion-back-button>
-    </ion-buttons>
-  </ion-toolbar>
-
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref="/tabs/quizzes"></ion-back-button>
+  </ion-buttons>
+</ion-toolbar>
 
 <ion-content>
 
-<ion-text>
-  <h2>
-    Tap the matching pair.
-  </h2>
-</ion-text>
+  <ion-text>
+    <h2>
+      Tap the matching pair.
+    </h2>
+  </ion-text>
 
-<ion-grid>
-  <ion-row>
-    <ion-col>
-      <img src="../../../../assets/images/quiz-choices/capsA-inactive.png" alt="Image 1">
-    </ion-col>
-    <ion-col>
-      <img src="../../../../assets/images/quiz-choices/smallN-inactive.png" alt="Image 2">
-    </ion-col>
-  </ion-row>
-  
+  <ion-grid *ngIf="quizzes.length > currentQuizIndex">
+    <ion-row>
+      <ion-col>
+        <img [src]="quizzes[currentQuizIndex].images[0]" alt="Image 1">
+      </ion-col>
+      <ion-col>
+        <img [src]="quizzes[currentQuizIndex].images[1]" alt="Image 2">
+      </ion-col>
+    </ion-row>
 
-  <ion-row>
-    <ion-col>
-      <img src="../../../../assets/images/quiz-choices/smallG-inactive.png" alt="Image 3">
-    </ion-col>
-    <ion-col>
-      <img src="../../../../assets/images/quiz-choices/capsQ-inactive.png" alt="Image 4">
-    </ion-col>
-  </ion-row>
-  
+    <ion-row>
+      <ion-col>
+        <img [src]="quizzes[currentQuizIndex].images[2]" alt="Image 3">
+      </ion-col>
+      <ion-col>
+        <img [src]="quizzes[currentQuizIndex].images[3]" alt="Image 4">
+      </ion-col>
+    </ion-row>
 
-  <ion-row>
-    <ion-col>
-      <img src="../../../../assets/images/quiz-choices/capsM-inactive.png" alt="Image 5">
-    </ion-col>
-    <ion-col>
-      <img src="../../../../assets/images/quiz-choices/smallA-inactive.png" alt="Image 6">
-    </ion-col>
-  </ion-row>
-</ion-grid>
+    <ion-row>
+      <ion-col>
+        <img [src]="quizzes[currentQuizIndex].images[4]" alt="Image 5">
+      </ion-col>
+      <ion-col>
+        <img [src]="quizzes[currentQuizIndex].images[5]" alt="Image 6">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-<img src="../../../../assets/images/checkblue.png" class="checkButton">
+  <img src="../../../../assets/images/checkblue.png" class="checkButton" (click)="onCheckButtonClick()">
 
 </ion-content>
