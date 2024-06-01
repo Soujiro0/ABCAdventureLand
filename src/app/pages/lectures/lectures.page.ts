@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { Profile } from 'src/app/models/profile';
+import { DataProviderService } from 'src/app/services/data-provider.service';
 import { InstructionComponent } from '../../components/instruction/instruction.component';
 
 @Component({
@@ -7,9 +9,16 @@ import { InstructionComponent } from '../../components/instruction/instruction.c
   templateUrl: './lectures.page.html',
   styleUrls: ['./lectures.page.scss'],
 })
-export class LecturesPage {
+export class LecturesPage implements OnInit {
 
-  constructor(public modalController: ModalController) { }
+  // User Profile
+  currentAccount!: Profile;
+
+  constructor(public modalController: ModalController, private data: DataProviderService) { }
+
+  ngOnInit(): void {
+    this.currentAccount = this.data.currentLoginProfile;
+  }
 
   async openInstructionModal(lesson: string) {
     const modal = await this.modalController.create({
@@ -18,4 +27,5 @@ export class LecturesPage {
     });
     return await modal.present();
   }
+
 }

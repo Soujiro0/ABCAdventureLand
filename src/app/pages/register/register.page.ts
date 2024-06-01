@@ -10,6 +10,25 @@ import { DataProviderService } from 'src/app/services/data-provider.service';
 })
 export class RegisterPage implements OnInit {
 
+  months: string[] = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ];
+  days: number[] = [];
+  years: number[] = [];
+  month!: string;
+  day!: number;
+  year!: number;
   profilePictures: string[] = [
     'assets/images/profilePictures/cat.png',
     'assets/images/profilePictures/chicken.png',
@@ -21,54 +40,94 @@ export class RegisterPage implements OnInit {
     'assets/images/profilePictures/rabbit.png',
     'assets/images/profilePictures/siberian.png',
   ];
-  selectedAvatar: any;
+  selectedAvatarIndex: number = 0;
 
-  month!: number;
-  day!: number;
-  year!: number;
+  monthModel!: string;
+  dayModel!: number;
+  yearModel!: number;
   model: any = {}
 
   constructor(private router : Router, private data: DataProviderService) { }
 
   // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
-  ngOnInit() { }
+  ngOnInit() {
+    this.initializeDays();
+    this.initializeYears();
+  }
 
   selectedGender(event: Event) {
     const selectedValue = (event.target as HTMLIonRadioElement).value;
     console.log(selectedValue);
   }
 
+  initializeDays() {
+    this.days = Array.from({ length: 31 }, (_, i) => i + 1);
+  }
+
+  initializeYears() {
+    const currentYear = new Date().getFullYear();
+    this.years = Array.from({ length: 101 }, (_, i) => currentYear - i);
+  }
+
   validateBirthday() {
-    let leapYear: number = this.year % 4 == 0? 29 : 28;
-    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    const daysInMonth = [31, leapYear, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-    if (
-        this.month != null &&
-        this.day != null &&
-        this.year != null &&
-        this.year.toString().length == 4
-      ) {
-      if (!(this.month > 12 || this.month <= 0)) {
-        if (this.day <= daysInMonth[this.month - 1]) {
-          this.model.birthday = `${months[this.month - 1]} ${this.day}, ${this.year}`;
-        } else {
-          alert(`The Day is Exceed in the Month, There are ${daysInMonth[this.month - 1]} days in ${months[this.month - 1]}`);
-          this.day = daysInMonth[this.month - 1];
-        }
-      } else {
-        alert('Exceeding to the number of Month');
-      }
+    this.month = this.monthModel;
+    this.year = this.yearModel;
+    console.log('pogi');
+    if (this.monthModel != null) {
+      this.updateDays();
     }
   }
 
-  selectAvatar(profileImagePath: string) {
-    this.model.avatarImagePath = profileImagePath;
+  updateDays() {
+    console.log('update days');
+    console.log(this.month);
+    const monthIndex = this.months.indexOf(this.month);
+    console.log(`monthIndex: ${monthIndex}`);
+    if (monthIndex === -1) return;
+
+    let daysInMonth;
+    switch (monthIndex) {
+      case 1: // February
+        daysInMonth = this.isLeapYear(this.year) ? 29 : 28;
+        console.log(daysInMonth);
+        break;
+      case 3: case 5: case 8: case 10: // April, June, September, November
+        daysInMonth = 30;
+        break;
+      default: // All other months
+        daysInMonth = 31;
+    }
+
+    this.days = Array.from({ length: daysInMonth }, (_, i) => i + 1);
+
+    // Adjust the selected day if it is greater than the new max days in the month
+    if (this.day > daysInMonth) {
+      this.day = daysInMonth;
+    }
+  }
+
+  isLeapYear(year: number): boolean {
+    return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+  }
+
+  selectAvatar(index: number, profileImagePath: string) {
+    this.selectedAvatarIndex = index;
+    if (profileImagePath == null) {
+      this.model.avatarImagePath = this.profilePictures[this.selectedAvatarIndex];
+    } else {
+      this.model.avatarImagePath = profileImagePath;
+    }
   }
 
   addAccount(form: NgForm) {
     if (!form.valid) {
       alert('Please fill all the fields');
     } else {
+
+      if (this.model.avatarImagePath == null) {
+        this.model.avatarImagePath = this.profilePictures[this.selectedAvatarIndex];
+      }
+      this.model.birthday = `${this.monthModel} ${this.dayModel}, ${this.yearModel}`
       this.model.progress = [
         {
           lessons: [

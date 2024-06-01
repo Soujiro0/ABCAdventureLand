@@ -12,6 +12,25 @@ import { DataProviderService } from 'src/app/services/data-provider.service';
 })
 export class ProfilePage implements OnInit {
 
+  months: string[] = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ];
+  days: number[] = [];
+  years: number[] = [];
+  month!: string;
+  day!: number;
+  year!: number;
   profilePictures: string[] = [
     'assets/images/profilePictures/cat.png',
     'assets/images/profilePictures/chicken.png',
@@ -23,10 +42,11 @@ export class ProfilePage implements OnInit {
     'assets/images/profilePictures/rabbit.png',
     'assets/images/profilePictures/siberian.png',
   ];
+  selectedAvatarIndex: number = 0;
   currentAccount!: Profile;
-  month!: number;
-  day!: number;
-  year!: number;
+  monthModel!: string;
+  dayModel!: number;
+  yearModel!: number;
   model!: Profile;
 
   constructor(private data: DataProviderService, private modal: ModalController, private router: Router) { }
@@ -36,6 +56,8 @@ export class ProfilePage implements OnInit {
     this.model = this.currentAccount;
     console.log(this.currentAccount);
     this.parseBirthday(this.currentAccount.birthday);
+    this.initializeDays();
+    this.initializeYears();
   }
 
   // Value getter of radio button
@@ -44,33 +66,59 @@ export class ProfilePage implements OnInit {
   }
 
   // Date validation
+  initializeDays() {
+    this.days = Array.from({ length: 31 }, (_, i) => i + 1);
+  }
+
+  initializeYears() {
+    const currentYear = new Date().getFullYear();
+    this.years = Array.from({ length: 101 }, (_, i) => currentYear - i);
+  }
+
+  // Date validation
   validateBirthday() {
-    let leapYear: number = this.year % 4 == 0? 29 : 28;
-    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    const daysInMonth = [31, leapYear, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-    if (
-        this.month != null &&
-        this.day != null &&
-        this.year != null &&
-        this.year.toString().length == 4
-      ) {
-      if (!(this.month > 12 || this.month <= 0)) {
-        if (this.day <= daysInMonth[this.month - 1]) {
-          this.model.birthday = `${months[this.month - 1]} ${this.day}, ${this.year}`;
-        } else {
-          alert(`The Day is Exceed in the Month, There are ${daysInMonth[this.month - 1]} days in ${months[this.month - 1]}`);
-          this.day = daysInMonth[this.month - 1];
-        }
-      } else {
-        alert('Exceeding to the number of Month');
-      }
+    this.month = this.monthModel;
+    this.year = this.yearModel;
+    console.log('pogi');
+    if (this.monthModel != null) {
+      this.updateDays();
     }
   }
 
+  updateDays() {
+    console.log('update days');
+    console.log(this.month);
+    const monthIndex = this.months.indexOf(this.month);
+    console.log(`monthIndex: ${monthIndex}`);
+    if (monthIndex === -1) return;
+
+    let daysInMonth;
+    switch (monthIndex) {
+      case 1: // February
+        daysInMonth = this.isLeapYear(this.year) ? 29 : 28;
+        console.log(daysInMonth);
+        break;
+      case 3: case 5: case 8: case 10: // April, June, September, November
+        daysInMonth = 30;
+        break;
+      default: // All other months
+        daysInMonth = 31;
+    }
+
+    this.days = Array.from({ length: daysInMonth }, (_, i) => i + 1);
+
+    // Adjust the selected day if it is greater than the new max days in the month
+    if (this.day > daysInMonth) {
+      this.day = daysInMonth;
+    }
+  }
+
+  isLeapYear(year: number): boolean {
+    return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+  }
   // Parsing Birthday
   parseBirthday(birthday: string): object {
     // Split the string into parts
-    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const parts = birthday.split(' ');
 
     if (parts.length !== 3) {
@@ -79,16 +127,16 @@ export class ProfilePage implements OnInit {
 
     // Extract the month
     const month = parts[0];
-    const monthIndex = months.indexOf(month);
-    this.month = monthIndex + 1;
+    const monthIndex = this.months.indexOf(month);
+    this.monthModel = this.months[monthIndex];
 
     // Remove the comma from the day and parse it as an integer
     const day = parseInt(parts[1].replace(',', ''), 10);
-    this.day = day;
+    this.dayModel = day;
 
     // Parse the year as an integer
     const year = parseInt(parts[2], 10);
-    this.year = year;
+    this.yearModel = year;
 
     if (isNaN(day) || isNaN(year)) {
       throw new Error('Invalid day or year format');
@@ -99,7 +147,8 @@ export class ProfilePage implements OnInit {
   }
 
   // Selects Avatar Image
-  selectAvatar(profileImagePath: string) {
+  selectAvatar(index: number, profileImagePath: string) {
+    this.selectedAvatarIndex = index;
     this.model.avatarImagePath = profileImagePath;
   }
 

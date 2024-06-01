@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="landing"></ion-back-button>
     </ion-buttons>
-    <ion-title style="font-size: 1.5rem; font-weight: bold;">Profiles</ion-title>
+    <ion-title style="font-size: 1.5rem; font-weight: bold; margin-right: 48px;" class="ion-text-center">Profiles</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -16,7 +16,7 @@
       <ion-avatar style="height: 100px; width: 100px; border: 3px black solid; display: block; margin: auto;">
         <img [src]="account.avatarImagePath" style="padding: 10px; border-radius: 0px;">
       </ion-avatar>
-      <ion-text style="width: 100%; display: block; text-align: center;">
+      <ion-text style="width: 100%; display: block; text-align: center; margin-top: 5px; font-size: 1.25rem; font-weight: bold;">
         <span>{{account.username}}</span>
       </ion-text>
     </div>
@@ -24,12 +24,13 @@
   <ion-button
     expand="block"
     shape="round"
-    style="font-size: 1.25rem; font-weight: bold; margin-top: 50px;" class="ion-padding"
+    style="width: 100%; max-width: 600px; font-size: 1.25rem; font-weight: bold; margin-top: 50px; margin-inline: auto;" class="ion-padding"
     (click)="goToRegister()"
     >
-    <ion-text style="padding: 10px;">
+    <ion-text style="padding: 10px; color:#f5f5f5;">
       <span>ADD PROFILE</span>
     </ion-text>
-    <ion-icon name="add-circle-sharp" style="font-size: 2rem; font-weight: bold;"></ion-icon>
+    <ion-icon name="add-circle-sharp" style="font-size: 2rem; font-weight: bold; color: #f5f5f5;"></ion-icon>
   </ion-button>
+
 </ion-content>

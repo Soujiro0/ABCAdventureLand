@@ -13,6 +13,7 @@ export class AccountsPage implements OnInit, OnDestroy {
 
   accountsList: Profile[] = [];
   accountSub!: Subscription;
+  bday!: string;
 
   constructor(private router: Router, private data: DataProviderService) { }
 
@@ -27,6 +28,7 @@ export class AccountsPage implements OnInit, OnDestroy {
         console.log(e);
       }
     });
+    console.log(this.bday);
   }
 
   loginProfile(profile: Profile) {
@@ -36,6 +38,10 @@ export class AccountsPage implements OnInit, OnDestroy {
 
   goToRegister() {
     this.router.navigate(['/register']);
+  }
+
+  getBday(event: Event) {
+    console.log(this.bday);
   }
 
   // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method

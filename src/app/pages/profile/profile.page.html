@@ -49,11 +49,11 @@
 
     <ion-content class="ion-padding">
 
-      <form #form="ngForm">
+      <form #form="ngForm" style="margin-top: 50px;">
 
         <!--Email Input-->
         <div style="display: flex; align-items: center;" class="ion-padding">
-          <ion-label style="margin-inline-end: 10px;">Email:</ion-label>
+          <ion-label style="margin-inline-end: 10px; font-size: 1.25rem; font-weight: bold;">Email:</ion-label>
           <ion-input
             type="text"
             placeholder="Email"
@@ -69,8 +69,9 @@
             ></ion-input>
         </div>
 
+        <!--Password Input-->
         <div style="display: flex; align-items: center;" class="ion-padding">
-          <ion-label style="margin-inline-end: 10px;">Password:</ion-label>
+          <ion-label style="margin-inline-end: 10px; font-size: 1.25rem; font-weight: bold;">Password:</ion-label>
           <ion-input
             type="text"
             placeholder="Password"
@@ -86,11 +87,29 @@
             ></ion-input>
         </div>
 
+        <!--Username Input-->
+        <div style="display: flex; align-items: center; margin-bottom: 50px;" class="ion-padding">
+          <ion-label style="margin-inline-end: 10px; font-size: 1.25rem; font-weight: bold;">Username:</ion-label>
+          <ion-input
+            type="text"
+            placeholder="Username"
+            required
+            name="username"
+            [(ngModel)]="model.username"
+            style="
+              border: #050505 solid 2px;
+              border-radius: 10px;
+              --padding-start: 10px;
+              --padding-end: 10px
+            "
+            ></ion-input>
+        </div>
+
         <!--Gender Radio Button-->
         <ion-list style="background-color: #FFF6F4;">
-          <ion-radio-group name="gender" required value="boy" (ionChange)="selectedGender($event);" [(ngModel)]="model.gender" style="display: flex; flex-wrap: wrap; justify-content: center; background-color:#FFF6F4;">
+          <ion-radio-group name="gender" required value="boy" (ionChange)="selectedGender($event)" [(ngModel)]="model.gender" style="display: flex; flex-wrap: wrap; justify-content: space-evenly; background-color:#FFF6F4; margin-bottom: 50px;">
             <ion-list-header>
-              <ion-label style="font-size: 1rem; font-weight: bold; color: #050505;">Character For:</ion-label>
+              <ion-label style="font-size: 1.25rem; font-weight: bold; color: #050505;">Character For:</ion-label>
             </ion-list-header>
             <div class="gender-choices">
               <img src="../../../assets/images/boy.png" alt="boy image" height="50">
@@ -107,79 +126,32 @@
           </ion-radio-group>
         </ion-list>
 
-        <div style="display: flex; align-items: center;" class="ion-padding">
-          <ion-label style="margin-inline-end: 10px;">Username:</ion-label>
-          <ion-input
-            type="text"
-            placeholder="Username"
-            required
-            name="username"
-            [(ngModel)]="model.username"
-            style="
-              border: #050505 solid 2px;
-              border-radius: 10px;
-              --padding-start: 10px;
-              --padding-end: 10px
-            "
-            ></ion-input>
+        <!--Birthday Input-->
+        <div style="display: flex; align-items: center; margin-bottom: 50px;" class="ion-padding">
+
+          <ion-label style="margin-inline-end: 10px; font-size: 1.25rem; font-weight: bold;">Birthday:</ion-label>
+            <!--Month-->
+            <ion-select name="month" [(ngModel)]="monthModel" placeholder="Month" required (ionChange)="validateBirthday()" style="width: fit-content; max-width: 150px; border: #050505 solid 2px; border-radius: 10px; --padding-start: 10px; --padding-end: 10px; background-color: #f5f5f5;">
+              <ion-select-option *ngFor="let month of months" [value]="month">{{ month }}</ion-select-option>
+            </ion-select>
+
+            <span style="font-size: 1.5rem; font-weight: bold; color: transparent;">/</span>
+            <!--Day-->
+            <ion-select name="day" [(ngModel)]="dayModel" placeholder="Day" required style="width: fit-content; max-width: 150px; border: #050505 solid 2px; border-radius: 10px; --padding-start: 10px; --padding-end: 10px; background-color: #f5f5f5;">
+              <ion-select-option *ngFor="let day of days" [value]="day">{{ day }}</ion-select-option>
+            </ion-select>
+
+            <span style="font-size: 1.5rem; font-weight: bold; color: transparent;">/</span>
+            <!--Year-->
+            <ion-select name="year" [(ngModel)]="yearModel" placeholder="Year" required (ionChange)="validateBirthday()" style="width: fit-content; max-width: 150px; border: #050505 solid 2px; border-radius: 10px; --padding-start: 10px; --padding-end: 10px; background-color: #f5f5f5;">
+              <ion-select-option *ngFor="let year of years" [value]="year">{{ year }}</ion-select-option>
+            </ion-select>
+
         </div>
 
-        <div style="display: flex; align-items: center;" class="ion-padding">
-          <ion-label style="margin-inline-end: 10px;">Birthday:</ion-label>
-          <ion-input
-            (keyup)="validateBirthday()"
-            type="tel"
-            [maxlength]="2"
-            placeholder="month"
-            required
-            name="month"
-            [(ngModel)]="month"
-            style="
-              width: 100px;
-              border: #050505 solid 2px;
-              border-radius: 10px;
-              --padding-start: 10px;
-              --padding-end: 10px
-            "
-            ></ion-input>
-            <span style="margin-inline: 20px; font-size: 1.5rem; font-weight: bold;">/</span>
-            <ion-input
-            (keyup)="validateBirthday()"
-            type="tel"
-            [maxlength]="2"
-            placeholder="day"
-            required
-            name="day"
-            [(ngModel)]="day"
-            style="
-              width: 100px;
-              border: #050505 solid 2px;
-              border-radius: 10px;
-              --padding-start: 10px;
-              --padding-end: 10px
-            "
-            ></ion-input>
-            <span style="margin-inline: 20px; font-size: 1.5rem; font-weight: bold;">/</span>
-            <ion-input
-            (keyup)="validateBirthday()"
-            type="tel"
-            [maxlength]="4"
-            placeholder="year"
-            required
-            name="year"
-            [(ngModel)]="year"
-            style="
-              width: 100px;
-              border: #050505 solid 2px;
-              border-radius: 10px;
-              --padding-start: 10px;
-              --padding-end: 10px
-            "
-            ></ion-input>
-        </div>
-
-        <div class="ion-padding">
-          <ion-label style="margin-inline-end: 10px;">Pick your Avatar:</ion-label>
+        <!--Avatar Selection-->
+        <div class="ion-padding" style="margin-bottom: 50px;">
+          <ion-label style="margin-inline-end: 10px; font-size: 1.25rem; font-weight: bold;">Pick your Avatar:</ion-label>
           <div
             class="ion-padding"
             style="
@@ -194,15 +166,16 @@
             "
           >
             <ion-avatar
-              *ngFor="let pics of profilePictures"
+              *ngFor="let pics of profilePictures; let i = index"
               style="
                 height: 100px;
                 width: 100px;
                 border: #050505 solid 3px;
                 padding: 15px;
-                background-color: transparent;
               "
-              (click)="selectAvatar(pics)"
+              class="selected"
+              (click)="selectAvatar(i, pics)"
+              [class.selected]="i === selectedAvatarIndex"
             >
               <img
                 [src]="pics"
@@ -216,12 +189,12 @@
           </div>
         </div>
 
-        <ion-button (click)="updateProfile(form)" expand="block" shape="round">
-          Save Changes
+        <ion-button (click)="updateProfile(form)" expand="block" shape="round" class="ion-margin-bottom">
+          <span style="padding: 20px; color: #f5f5f5; font-size: 1.25rem; font-weight: bold;">Save Changes</span>
         </ion-button>
 
-        <ion-button (click)="deleteProfile(currentAccount.id)" fill="outline" expand="block" shape="round" color="danger">
-          Delete Profile
+        <ion-button (click)="deleteProfile(currentAccount.id)" fill="outline" expand="block" shape="round" color="danger" class="ion-margin-bottom">
+          <span style="padding: 20px; font-size: 1.25rem; font-weight: bold;">Delete Profile</span>
         </ion-button>
 
       </form>
@@ -242,7 +215,9 @@
   </div>
 
   <ion-card>
-    <img src="../../../assets/images/Lesson1Alphabets.png" alt="lesson 1 image">
+    <div style="height: 75%; width: 100%;">
+      <img src="../../../assets/images/Lesson1Alphabets.png" alt="lesson 1 image">
+    </div>
     <ion-card-content>
       <div>
         <h1>Lesson 1</h1>
@@ -253,7 +228,9 @@
   </ion-card>
 
   <ion-card>
-    <img src="../../../assets/images/Lesson2ReadingComprehension.png" alt="lesson 2 image">
+    <div style="height: 75%; width: 100%;">
+      <img src="../../../assets/images/Lesson2ReadingComprehension.png" alt="lesson 2 image">
+    </div>
     <ion-card-content>
       <div>
         <h1>Lesson 2</h1>
@@ -268,7 +245,9 @@
   </div>
 
   <ion-card>
-    <img src="../../../assets/images/Quiz1MatchingPairs.png" alt="quiz 1 image">
+    <div style="height: 75%; width: 100%;">
+      <img src="../../../assets/images/Quiz1MatchingPairs.png" alt="quiz 1 image">
+    </div>
     <ion-card-content>
       <div>
         <h1>Quiz 1</h1>
@@ -279,7 +258,9 @@
   </ion-card>
 
   <ion-card>
-    <img src="../../../assets/images/Quiz2FillintheBlanks.png" alt="quiz 2 image">
+    <div style="height: 75%; width: 100%;">
+      <img src="../../../assets/images/Quiz2FillintheBlanks.png" alt="quiz 2 image">
+    </div>
     <ion-card-content>
       <div>
         <h1>Quiz 2</h1>

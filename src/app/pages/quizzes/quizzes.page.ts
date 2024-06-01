@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { Profile } from 'src/app/models/profile';
+import { DataProviderService } from 'src/app/services/data-provider.service';
 import { InstructionComponent } from '../../components/instruction/instruction.component';
 
 @Component({
@@ -9,9 +11,14 @@ import { InstructionComponent } from '../../components/instruction/instruction.c
 })
 export class QuizzesPage implements OnInit {
 
-  constructor(private modalController: ModalController) { }
+  // User Profile
+  currentAccount!: Profile;
 
-  ngOnInit() { }
+  constructor(private modalController: ModalController, private data: DataProviderService) { }
+
+  ngOnInit() {
+    this.currentAccount = this.data.currentLoginProfile;
+  }
 
   async openInstruction(lesson: string) {
     const modal = await this.modalController.create({
