@@ -40,7 +40,7 @@ export class ProfilePage implements OnInit {
 
   // Value getter of radio button
   selectedGender(event: Event) {
-    const selectedValue = (event.target as HTMLIonRadioElement).value;
+    (event.target as HTMLIonRadioElement).value;
   }
 
   // Date validation
@@ -68,7 +68,7 @@ export class ProfilePage implements OnInit {
   }
 
   // Parsing Birthday
-  parseBirthday(birthday: string) {
+  parseBirthday(birthday: string): object {
     // Split the string into parts
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const parts = birthday.split(' ');
@@ -103,8 +103,62 @@ export class ProfilePage implements OnInit {
     this.model.avatarImagePath = profileImagePath;
   }
 
-  progress() {
-    this.currentAccount.progress![1].quizzes[0].items[0].isFinished = true;
+  calculateProgress(progressName: string): number {
+
+    let progress;
+    let totalItems;
+
+    switch(progressName) {
+
+      case 'lesson 1':
+        totalItems = this.currentAccount.progress![0].lessons[0].items.length;
+        progress = this.currentAccount.progress![0].lessons[0].items.filter(item => item.isFinished == true);
+        return (progress.length / totalItems);
+
+      case 'lesson 2':
+        totalItems = this.currentAccount.progress![0].lessons[1].items.length;
+        progress = this.currentAccount.progress![0].lessons[1].items.filter(item => item.isFinished == true);
+        return (progress.length / totalItems);
+
+      case 'overall lesson':
+        progress = [];
+        totalItems = this.currentAccount.progress![0].lessons[0].items.length + this.currentAccount.progress![0].lessons[1].items.length;
+        for (let index = 0; index < this.currentAccount.progress![0].lessons.length; index++) {
+          this.currentAccount.progress![0].lessons[index].items.forEach((item) => {
+            if(item.isFinished == true){
+              progress.push(item);
+            }
+          });
+        }
+        return (progress.length / totalItems);
+
+      case 'quiz 1':
+        totalItems = this.currentAccount.progress![1].quizzes[0].items.length;
+        progress = this.currentAccount.progress![1].quizzes[0].items.filter(item => item.isFinished == true);
+        return (progress.length / totalItems);
+
+      case 'quiz 2':
+        totalItems = this.currentAccount.progress![1].quizzes[1].items.length;
+        progress = this.currentAccount.progress![1].quizzes[1].items.filter(item => item.isFinished == true);
+        return (progress.length / totalItems);
+
+      case 'overall quiz':
+        progress = [];
+        totalItems = this.currentAccount.progress![1].quizzes[0].items.length + this.currentAccount.progress![1].quizzes[1].items.length;
+        for (let index = 0; index < this.currentAccount.progress![1].quizzes.length; index++) {
+          this.currentAccount.progress![1].quizzes[index].items.forEach((item) => {
+            if(item.isFinished == true){
+              progress.push(item);
+            }
+          });
+        }
+        return (progress.length / totalItems);
+
+      default:
+        return 0;
+
+    }
+
   }
 
   updateProfile(form: NgForm) {

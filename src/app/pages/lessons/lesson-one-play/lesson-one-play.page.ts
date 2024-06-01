@@ -92,8 +92,7 @@ export class LessonOnePlayPage implements OnInit {
     this.selectedLetter = letters[nextIndex];
     // currentItem is updated
     this.currentItem = this.selectedLetter.itemNo - 1;
-    console.log(this.currentItem);
-    console.log(this.selectedLetter.itemNo);
+
     this.updateAudioSource();
   }
 
@@ -104,8 +103,7 @@ export class LessonOnePlayPage implements OnInit {
     this.selectedLetter = letters[previousIndex];
     // currentItem is updated
     this.currentItem = this.selectedLetter.itemNo - 1;
-    console.log(this.currentItem);
-    console.log(this.selectedLetter.itemNo);
+
     this.updateAudioSource();
   }
 }

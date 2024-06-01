@@ -18,13 +18,13 @@
     <div class="average">z
       <ion-card>
         <ion-card-content>
-          <ion-card-title>100%</ion-card-title>
+          <ion-card-title>{{(calculateProgress('overall lesson') * 100).toFixed(2) + '%'}}</ion-card-title>
           <ion-card-subtitle>Lectures</ion-card-subtitle>
         </ion-card-content>
       </ion-card>
       <ion-card>
         <ion-card-content>
-          <ion-card-title>100%</ion-card-title>
+          <ion-card-title>{{(calculateProgress('overall quiz') * 100).toFixed(2) + '%'}}</ion-card-title>
           <ion-card-subtitle>Quizzes</ion-card-subtitle>
         </ion-card-content>
       </ion-card>
@@ -246,9 +246,9 @@
     <ion-card-content>
       <div>
         <h1>Lesson 1</h1>
-        <h1>100%</h1>
+        <h1>{{(calculateProgress('lesson 1') * 100).toFixed(2) + '%'}}</h1>
       </div>
-      <ion-progress-bar value="1"></ion-progress-bar>
+      <ion-progress-bar [value]="calculateProgress('lesson 1')"></ion-progress-bar>
     </ion-card-content>
   </ion-card>
 
@@ -257,9 +257,9 @@
     <ion-card-content>
       <div>
         <h1>Lesson 2</h1>
-        <h1>100%</h1>
+        <h1>{{(calculateProgress('lesson 2') * 100).toFixed(2) + '%'}}</h1>
       </div>
-      <ion-progress-bar value="1"></ion-progress-bar>
+      <ion-progress-bar [value]="calculateProgress('lesson 2')"></ion-progress-bar>
     </ion-card-content>
   </ion-card>
 
@@ -272,9 +272,9 @@
     <ion-card-content>
       <div>
         <h1>Quiz 1</h1>
-        <h1>100%</h1>
+        <h1>{{(calculateProgress('quiz 1') * 100).toFixed(2) + '%'}}</h1>
       </div>
-      <ion-progress-bar value="1"></ion-progress-bar>
+      <ion-progress-bar [value]="calculateProgress('quiz 1')"></ion-progress-bar>
     </ion-card-content>
   </ion-card>
 
@@ -283,14 +283,10 @@
     <ion-card-content>
       <div>
         <h1>Quiz 2</h1>
-        <h1>100%</h1>
+        <h1>{{(calculateProgress('quiz 2') * 100).toFixed(2)}}</h1>
       </div>
-      <ion-progress-bar value="1"></ion-progress-bar>
+      <ion-progress-bar [value]="calculateProgress('quiz 2')"></ion-progress-bar>
     </ion-card-content>
   </ion-card>
 
-
-  <ion-button (click)="progress()" expand="block" fill="clear" shape="round">
-    Progress
-  </ion-button>
 </ion-content>

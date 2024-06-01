@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { Profile } from 'src/app/models/profile';
+import { DataProviderService } from 'src/app/services/data-provider.service';
 import { CheckOverlayComponent } from '../../../components/check-overlay/check-overlay.component';
 
 @Component({
@@ -8,7 +10,7 @@ import { CheckOverlayComponent } from '../../../components/check-overlay/check-o
   styleUrls: ['./lesson-two.page.scss'],
 })
 export class LessonTwoPage implements OnInit {
-  currentLessonIndex: number = 0;
+
   lessons: any[] = [
     {
       object: 'rainbow.png',
@@ -111,10 +113,18 @@ export class LessonTwoPage implements OnInit {
       ]
     }
   ];
+  currentLessonIndex: number = 0;
 
-  constructor(private modalController: ModalController) { }
+  // User Profile
+  currentItem: number = 0;
+  currentAccount!: Profile;
 
-  ngOnInit() {}
+  constructor(private modalController: ModalController, private data: DataProviderService) { }
+
+  ngOnInit() {
+    this.currentAccount = this.data.currentLoginProfile;
+    this.currentItem = this.currentLessonIndex;
+  }
 
   async onChoiceClick(isCorrect: boolean) {
     const modal = await this.modalController.create({
@@ -127,9 +137,15 @@ export class LessonTwoPage implements OnInit {
     await modal.present();
     const { data } = await modal.onDidDismiss();
 
+    if(isCorrect) {
+      this.currentAccount.progress![0].lessons[1].items[this.currentItem].isFinished = true;
+      this.data.updateProfile(this.currentAccount.id, this.currentAccount);
+    }
+
     if (data) {
       if (this.currentLessonIndex < this.lessons.length - 1) {
         this.currentLessonIndex++;
+        this.currentItem = this.currentLessonIndex;
       } else {
         console.log('All lessons completed');
       }

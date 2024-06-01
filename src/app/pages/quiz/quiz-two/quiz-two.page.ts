@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { Profile } from 'src/app/models/profile';
+import { DataProviderService } from 'src/app/services/data-provider.service';
 import { CheckOverlayComponent } from '../../../components/check-overlay/check-overlay.component';
 
 @Component({
@@ -8,7 +10,7 @@ import { CheckOverlayComponent } from '../../../components/check-overlay/check-o
   styleUrls: ['./quiz-two.page.scss'],
 })
 export class QuizTwoPage implements OnInit {
-  currentQuizIndex: number = 0;
+
   quizzes: any[] = [
     {
       illustration: '../../../../assets/QUIZ2obj/pig.png',
@@ -101,10 +103,19 @@ export class QuizTwoPage implements OnInit {
       ]
     }
   ];
+  currentQuizIndex: number = 0;
 
-  constructor(private modalController: ModalController) { }
+  // User Profile
+  currentItem: number = 0;
+  currentAccount!: Profile;
 
-  ngOnInit() { }
+  constructor(private modalController: ModalController, private data: DataProviderService) { }
+
+  // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
+  ngOnInit() {
+    this.currentAccount = this.data.currentLoginProfile;
+    this.currentItem = this.currentQuizIndex;
+  }
 
   async onChoiceClick(isCorrect: boolean) {
     const modal = await this.modalController.create({
@@ -117,9 +128,15 @@ export class QuizTwoPage implements OnInit {
     await modal.present();
     const { data } = await modal.onDidDismiss();
 
+    if(isCorrect) {
+      this.currentAccount.progress![1].quizzes[1].items[this.currentItem].isFinished = true;
+      this.data.updateProfile(this.currentAccount.id, this.currentAccount);
+    }
+
     if (data) {
       if (this.currentQuizIndex < this.quizzes.length - 1) {
         this.currentQuizIndex++;
+        this.currentItem = this.currentQuizIndex;
       } else {
         console.log('Quiz completed');
       }

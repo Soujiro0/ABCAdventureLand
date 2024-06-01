@@ -12,35 +12,21 @@
     </h2>
   </ion-text>
 
-  <ion-grid *ngIf="quizzes.length > currentQuizIndex">
-    <ion-row>
-      <ion-col>
-        <img [src]="quizzes[currentQuizIndex].images[0]" alt="Image 1">
-      </ion-col>
-      <ion-col>
-        <img [src]="quizzes[currentQuizIndex].images[1]" alt="Image 2">
-      </ion-col>
-    </ion-row>
+  <div style="height: fit-content; width: 100%; max-width: 600px; margin-inline: auto;">
+    <div style="width: 100%; max-width: 600px; display: flex; justify-content: space-evenly; align-items: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+      <div class="left-side">
+        <div *ngFor="let btn of quizzes[currentQuizIndex].images[0].left; let i = index" class="ion-margin-bottom">
+          <img [src]="btn.image" alt="buttons" (click)="selected(i, 'left')" id="btns" [class.selected]="i === selectedLeftIndex">
+        </div>
+      </div>
+      <div class="right-side">
+        <div *ngFor="let btn of quizzes[currentQuizIndex].images[1].right; let i = index" class="ion-margin-bottom">
+          <img [src]="btn.image" alt="buttons" (click)="selected(i, 'right')" id="btns" [class.selected]="i === selectedRightIndex">
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <ion-row>
-      <ion-col>
-        <img [src]="quizzes[currentQuizIndex].images[2]" alt="Image 3">
-      </ion-col>
-      <ion-col>
-        <img [src]="quizzes[currentQuizIndex].images[3]" alt="Image 4">
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col>
-        <img [src]="quizzes[currentQuizIndex].images[4]" alt="Image 5">
-      </ion-col>
-      <ion-col>
-        <img [src]="quizzes[currentQuizIndex].images[5]" alt="Image 6">
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-  <img src="../../../../assets/images/checkblue.png" class="checkButton" (click)="onCheckButtonClick()">
+  <img src="../../../../assets/images/checkblue.png" class="checkButton" (click)="onCheckButtonClick(quizzes[currentQuizIndex].images[0].left, quizzes[currentQuizIndex].images[1].right)">
 
 </ion-content>

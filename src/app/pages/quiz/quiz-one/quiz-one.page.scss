@@ -25,32 +25,19 @@ h2 {
   padding-left: 10%;
 }
 
-ion-grid{
-  margin-top: 75px;
-}
-
-
-ion-col {
-  display: flex;
-  margin-top: 5%;
-  align-items: center;
-  justify-content: center;
-}
-
-ion-col img {
+div > img {
+  height: auto;
   width: 130px;
-  height: auto; 
-  display: block; 
-  margin: 5px auto;
 }
 
 .checkButton{
   width: 300px;
-  margin: 0 auto; 
-  position: absolute; 
+  margin: 0 auto;
+  position: absolute;
   bottom: 20px;
-  left: 0;  
+  left: 0;
   right: 0;
+  display: block;
 
 }
 
@@ -59,6 +46,11 @@ ion-col img {
   height: auto;
   align-self: flex-end;
 
+}
+
+.selected {
+  border-bottom: #F46A17 solid 10px;
+  border-radius: 20px;
 }
 
 
