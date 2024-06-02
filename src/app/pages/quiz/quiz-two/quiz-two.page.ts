@@ -86,11 +86,11 @@ export class QuizTwoPage implements OnInit {
     },
     {
       illustration: '../../../../assets/QUIZ2obj/owl.png',
-      letters: { letter1: 'O', letter2: '____', letter3: 'W' },
+      letters: { letter1: 'O', letter2: '____', letter3: 'L' },
       choices: [
-        { imgPath: '../../../../assets/images/quiz-choices/capsL-inactive.png', isCorrect: true },
+        { imgPath: '../../../../assets/images/quiz-choices/capsL-inactive.png', isCorrect: false },
         { imgPath: '../../../../assets/images/quiz-choices/capsA-inactive.png', isCorrect: false },
-        { imgPath: '../../../../assets/images/quiz-choices/capsW-inactive.png', isCorrect: false }
+        { imgPath: '../../../../assets/images/quiz-choices/capsW-inactive.png', isCorrect: true }
       ]
     },
     {

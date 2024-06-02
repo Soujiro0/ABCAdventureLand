@@ -1,10 +1,10 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title slot="end">Lectures</ion-title>
-    <ion-avatar slot="start" style="border: 2px #4E63DD solid; margin-left: 20px; padding: 10px;">
+    <ion-avatar slot="start" style="border: 5px #4E63DD solid; margin-left: 20px; padding: 10px; height: 70px; width: 70px;">
       <img [src]="currentAccount.avatarImagePath" style="border-radius: 0;">
     </ion-avatar>
-    <span style="margin-left: 10px; font-size: 1.2rem; font-weight: bold;">Hello, {{currentAccount.username}}</span>
+    <span style="display: block;  padding-left: 10px; font-size: 1.2rem; font-weight: bold; text-align: left;">Hello, {{currentAccount.username}}</span>
   </ion-toolbar>
 </ion-header>
 
@@ -13,7 +13,7 @@
     <ion-card>
       <img src="../../../assets/images/Lesson1Alphabets.png" alt="lesson 1 image">
       <ion-card-content>
-        <ion-card-title>Alphabet</ion-card-title>
+        <ion-card-title>Alphabet Letters</ion-card-title>
       </ion-card-content>
     </ion-card>
   </a>
@@ -21,7 +21,7 @@
   <a (click)="openInstructionModal('lesson-two')">
     <ion-card>
       <img src="../../../assets/images/Lesson2ReadingComprehension.png" alt="lesson 2 image">
-      <ion-card-content style="padding: 0;">
+      <ion-card-content>
         <ion-card-title>Reading Comprehension</ion-card-title>
       </ion-card-content>
     </ion-card>

@@ -6,8 +6,8 @@ ion-modal {
     --border-style: solid;
     --border-width: 8px;
     --height: 100%;
-    --max-height: 400px;
-    --max-width: 400px;
+    --max-height: 300px;
+    --max-width: 300px;
     --min-height: 300px;
     --min-width: 300px;
     --width: 80%;
@@ -32,45 +32,23 @@ ion-modal {
             --padding-end: 4px;
             --padding-start: 4px;
             --padding-top: 4px;
-    
+
             ion-title {
                 --color: #000000;
                 text-align: center;
                 margin-right: 50px;
-                font-size: 2rem;
+                font-size: 1.25rem;
+                font-weight: bold;
             }
-    
+
             ion-button {
-                --background: transparent;
-                --background-activated: transparent;
-                --background-activated-opacity: 1;
-                --background-focused: transparent;
-                --background-focused-opacity: 1;
-                --background-hover: transparent;
-                --background-hover-opacity: 1;
-                --border-color: transparent;
-                --border-radius: 8px;
-                --border-style: solid;
-                --border-width: 8px;
-                --box-shadow: 10px 10px;
-                --color: #ffffff;
-                --color-activated: #ffffff;
-                --color-focused: #ffffff;
-                --color-hover: #ffffff;
-                --opacity: 1;
-                --padding-bottom: 4px;
-                --padding-end: 4px;
-                --padding-start: 4px;
-                --padding-top: 4px;
-                --ripple-color: #1e1e1e;
-                --transition: background-color 15ms linear;
                 width: 50px;
                 height: 50px;
-    
+
                 ion-icon {
                     background: transparent;
                     color: #000000;
-                    font-size: 30px;
+                    font-size: 5rem;
                 }
             }
         }
@@ -84,31 +62,9 @@ ion-modal {
             align-items: center;
 
             ion-button {
-                --background: transparent;
-                --background-activated: transparent;
-                --background-activated-opacity: 1;
-                --background-focused: transparent;
-                --background-focused-opacity: 1;
-                --background-hover: transparent;
-                --background-hover-opacity: 1;
-                --border-color: transparent;
-                --border-radius: 8px;
-                --border-style: solid;
-                --border-width: 8px;
-                --box-shadow: 10px 10px;
-                --color: #ffffff;
-                --color-activated: #ffffff;
-                --color-focused: #ffffff;
-                --color-hover: #ffffff;
-                --opacity: 1;
-                --padding-bottom: 4px;
-                --padding-end: 4px;
-                --padding-start: 4px;
-                --padding-top: 4px;
-                --ripple-color: #1e1e1e;
-                --transition: background-color 15ms linear;
                 height: auto;
-                width: 80%;
+                width: 100%;
+                margin-bottom: 20px;
 
                 img {
                     height: 100%;

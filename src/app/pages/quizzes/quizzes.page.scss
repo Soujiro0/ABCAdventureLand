@@ -49,19 +49,20 @@ ion-content {
       margin-bottom: 20px;
       border: 10px solid #FDA12E;
       border-radius: 20px;
-      height: 300px;
+      height: fit-content;
       max-width: 500px;
       width: 90%;
       margin-inline: auto;
-      display: grid;
-      grid-template-rows: 75% 25%;
-      gap: 5px;
-      place-items: center;
+
+      ion-card-content {
+        padding: 0;
+        padding-top: 10px;
+      }
 
       img {
           height: 100%;
           width: 100%;
-          object-fit: cover;
+          object-fit: contain;
       }
 
       ion-card-title {

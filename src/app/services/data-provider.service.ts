@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Firestore, addDoc, collection, deleteDoc, doc, getDocs, updateDoc } from '@angular/fire/firestore';
 import { BehaviorSubject } from 'rxjs';
 import { Profile } from './../models/profile';
 
@@ -15,41 +16,38 @@ export class DataProviderService {
 
   currentLoginProfile!: Profile;
 
-  constructor() { }
+  constructor(private firestore: Firestore) { }
 
   getAccountById() {}
 
   async getAccounts() {
     try {
-      // // dataRef: get the collection in firebase (The Integrated firestore, The name of collection in database)
-      // const dataRef: any = collection(this.firestore, 'anime-list');
-      // // Using getDocs(), passing the argument dataRef to query to database
-      // const querySnapshot = await getDocs(dataRef);
+      // dataRef: get the collection in firebase (The Integrated firestore, The name of collection in database)
+      const dataRef: any = collection(this.firestore, 'profiles');
+      // Using getDocs(), passing the argument dataRef to query to database
+      const querySnapshot = await getDocs(dataRef);
 
-      // const anime: Anime[] = await querySnapshot.docs.map((doc) => {
-      //   // Get Data one by one in variable item
-      //   let item: any = doc.data();
-      //   console.log(item);
-      //   item.id = doc.id;
-      //   return item;
-      // });
-      // this._animeList.next(anime);
-      return [];
+      const profile: Profile[] = await querySnapshot.docs.map((doc) => {
+        // Get Data one by one in variable item
+        let item: any = doc.data();
+        console.log(item);
+        item.id = doc.id;
+        return item;
+      });
+      this._accounts.next(profile);
+      return profile;
     } catch (e) {
       throw(e);
     }
   }
 
-  async addProfile(profile: Profile) {
+  async addProfile(profile: any) {
     try {
-      // const dataRef: any = collection(this.firestore, 'anime-list');
-      // const response = await addDoc(dataRef, anime);
-      // const id = await response?.id;
-
-      // const currentAnimelist = this._animeList.value;
-      // const newId = id;
+      const dataRef: any = collection(this.firestore, 'profiles');
+      const response = await addDoc(dataRef, profile);
+      const id = await response?.id;
+      const newId = id;
       const currentAccounts = this._accounts.value;
-      const newId = (currentAccounts.length + 1).toString();
       let newProfile: Profile[] = [{...profile, id: newId}];
       newProfile = newProfile.concat(currentAccounts);
       this._accounts.next(newProfile);
@@ -61,8 +59,8 @@ export class DataProviderService {
 
   async updateProfile(id: string, profile: any) {
     try {
-      // const dataRef = await doc(this.firestore, `anime-list/${id}`);
-      // await updateDoc(dataRef, anime);
+      const dataRef = await doc(this.firestore, `profiles/${id}`);
+      await updateDoc(dataRef, profile);
 
       let currentAccounts = this._accounts.value;
       const idx = currentAccounts.findIndex((x) => {
@@ -79,8 +77,8 @@ export class DataProviderService {
 
   async deleteProfile(id: string) {
     try {
-      // const dataRef = await doc(this.firestore, `anime-list/${id}`);
-      // await deleteDoc(dataRef);
+      const dataRef = await doc(this.firestore, `profiles/${id}`);
+      await deleteDoc(dataRef);
 
       let currentAccounts = this._accounts.value;
       currentAccounts = currentAccounts.filter(x => x.id != id);

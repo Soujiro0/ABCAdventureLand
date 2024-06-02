@@ -88,7 +88,7 @@ export class QuizOnePage implements OnInit {
       images: [
         {
           left: [
-            { image: '../../../../assets/images/quiz-choices/capsJ-inactive.png', no: 1, isCorrect: false },
+            { image: '../../../../assets/images/quiz-choices/capsA-inactive.png', no: 1, isCorrect: false },
             { image: '../../../../assets/images/quiz-choices/capsQ-inactive.png', no: 2, isCorrect: true },
             { image: '../../../../assets/images/quiz-choices/smallF-inactive.png', no: 3, isCorrect: false },
           ]
@@ -143,7 +143,7 @@ export class QuizOnePage implements OnInit {
         {
           left: [
             { image: '../../../../assets/images/quiz-choices/smallR-inactive.png', no: 1, isCorrect: true },
-            { image: '../../../../assets/images/quiz-choices/capsT-inactive.png', no: 2, isCorrect: false },
+            { image: '../../../../assets/images/quiz-choices/capsL-inactive.png', no: 2, isCorrect: false },
             { image: '../../../../assets/images/quiz-choices/smallS-inactive.png', no: 3, isCorrect: false },
           ]
         },

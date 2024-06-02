@@ -13,24 +13,24 @@
     style="height: fit-content; width: 100%; max-width: 600px; margin-inline: auto; display: grid; grid-template-columns: repeat(3, 1fr); place-items: center; gap: 10px;"
   >
     <div class="profiles" *ngFor="let account of accountsList" (click)="loginProfile(account);">
-      <ion-avatar style="height: 100px; width: 100px; border: 3px black solid; display: block; margin: auto;">
-        <img [src]="account.avatarImagePath" style="padding: 10px; border-radius: 0px;">
+      <ion-avatar style="height: 100px; width: 100px; border: 5px black solid; display: block; padding: 15px; margin: auto;">
+        <img [src]="account.avatarImagePath" style="border-radius: 0px;">
       </ion-avatar>
       <ion-text style="width: 100%; display: block; text-align: center; margin-top: 5px; font-size: 1.25rem; font-weight: bold;">
         <span>{{account.username}}</span>
       </ion-text>
     </div>
   </div>
-  <ion-button
-    expand="block"
-    shape="round"
-    style="width: 100%; max-width: 600px; font-size: 1.25rem; font-weight: bold; margin-top: 50px; margin-inline: auto;" class="ion-padding"
-    (click)="goToRegister()"
+
+  <div style="height: auto; width: 100%; max-width: 600px; margin-inline: auto; margin-top: 50px;">
+    <ion-button (click)="goToRegister()" fill="clear" shape="round"
+    style="
+      height: 100%;
+      width: 100%;
+    "
     >
-    <ion-text style="padding: 10px; color:#f5f5f5;">
-      <span>ADD PROFILE</span>
-    </ion-text>
-    <ion-icon name="add-circle-sharp" style="font-size: 2rem; font-weight: bold; color: #f5f5f5;"></ion-icon>
-  </ion-button>
+      <img src="../../../assets/images/addProfile.png" alt="">
+    </ion-button>
+  </div>
 
 </ion-content>

@@ -53,6 +53,7 @@ export class ProfilePage implements OnInit {
 
   ngOnInit() {
     this.currentAccount = this.data.currentLoginProfile;
+    this.selectedAvatarIndex = this.profilePictures.indexOf(this.currentAccount.avatarImagePath);
     this.model = this.currentAccount;
     console.log(this.currentAccount);
     this.parseBirthday(this.currentAccount.birthday);
@@ -142,7 +143,6 @@ export class ProfilePage implements OnInit {
       throw new Error('Invalid day or year format');
     }
 
-
     return { month, day, year };
   }
 
@@ -211,9 +211,15 @@ export class ProfilePage implements OnInit {
   }
 
   updateProfile(form: NgForm) {
+    console.log('Form Value');
+    console.log(form.value);
+    console.log(`dayModel: ${this.dayModel}`)
+    console.log('model');
+    console.log(this.model);
     if (!form.valid) {
       alert('There are blank detail, Please fill up');
     } else {
+      this.model.birthday = `${this.monthModel} ${this.dayModel}, ${this.yearModel}`
       this.model.progress = this.currentAccount.progress;
       this.data.updateProfile(this.currentAccount.id, this.model);
       alert('Update Successfully');

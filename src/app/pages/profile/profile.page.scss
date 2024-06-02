@@ -51,11 +51,10 @@ div.profile {
         margin-inline: auto;
         border:#4E63DD solid 5px;
         border-radius: 50%;
-        padding: 10px;
+        padding: 15px;
 
         img {
-            object-fit: contain;
-            object-position: center;
+            border-radius: 0;
         }
     }
 
@@ -128,7 +127,7 @@ ion-content {
 
         ion-title {
             --color: #000000;
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: bold;
             padding: 0;
         }
@@ -140,15 +139,21 @@ ion-content {
         margin-bottom: 20px;
         border: 10px solid #FDA12E;
         border-radius: 20px;
-        height: 250px;
+        height: fit-content;
         max-width: 500px;
         width: 90%;
         margin-inline: auto;
+        padding: 5px;
+
+        ion-card-content {
+          padding: 0;
+          padding-top: 10px;
+        }
 
         img {
             height: 100%;
             width: 100%;
-            object-fit: cover;
+            object-fit: contain;
         }
 
         div {
