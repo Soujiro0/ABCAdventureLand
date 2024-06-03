@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ModalController } from '@ionic/angular';
+import { ModalController, ActionSheetController } from '@ionic/angular';
 import { Profile } from 'src/app/models/profile';
 import { DataProviderService } from 'src/app/services/data-provider.service';
+import { ToastController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-profile',
@@ -49,7 +51,7 @@ export class ProfilePage implements OnInit {
   yearModel!: number;
   model!: Profile;
 
-  constructor(private data: DataProviderService, private modal: ModalController, private router: Router) { }
+  constructor(private data: DataProviderService, private modal: ModalController, private router: Router, private actionSheetController: ActionSheetController, private toastController: ToastController) { }
 
   ngOnInit() {
     this.currentAccount = this.data.currentLoginProfile;
@@ -210,7 +212,7 @@ export class ProfilePage implements OnInit {
 
   }
 
-  updateProfile(form: NgForm) {
+  async updateProfile(form: NgForm) {
     console.log('Form Value');
     console.log(form.value);
     console.log(`dayModel: ${this.dayModel}`)
@@ -227,10 +229,37 @@ export class ProfilePage implements OnInit {
     }
   }
 
-  deleteProfile(id: string) {
-    alert('Profile Deleted Successfully');
-    this.modal.dismiss();
-    this.data.deleteProfile(id);
-    this.router.navigate(['landing']);
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Profile successfully deleted.',
+      duration: 3000,
+      position: 'top',
+      cssClass: 'custom-toast'
+    });
+    toast.present();
   }
+
+  async deleteProfile(id: string) {
+    const actionSheet = await this.actionSheetController.create({
+      header: 'Do you want to delete this account?',
+      cssClass: 'centered-button',
+      buttons: [
+        {
+          text: 'Delete',
+          handler: () => {
+            this.data.deleteProfile(id);
+            this.presentToast();
+            this.modal.dismiss();
+            this.router.navigate(['landing']);
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel'
+        }
+      ]
+    });
+    await actionSheet.present();
+  }
+  
 }

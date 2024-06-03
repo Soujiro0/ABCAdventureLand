@@ -17,14 +17,14 @@ export class QuizOnePage implements OnInit {
         {
           left: [
             { image: '../../../../assets/images/quiz-choices/capsA-inactive.png', no: 1, isCorrect: true },
-            { image: '../../../../assets/images/quiz-choices/smallN-inactive.png', no: 2, isCorrect: false },
-            { image: '../../../../assets/images/quiz-choices/smallG-inactive.png', no: 3, isCorrect: false },
+            { image: '../../../../assets/images/quiz-choices/capsB-inactive.png', no: 2, isCorrect: false },
+            { image: '../../../../assets/images/quiz-choices/capsC-inactive.png', no: 3, isCorrect: false },
           ]
         },
         {
           right: [
-            { image: '../../../../assets/images/quiz-choices/capsQ-inactive.png', no: 1, isCorrect: false },
-            { image: '../../../../assets/images/quiz-choices/capsM-inactive.png', no: 2, isCorrect: false },
+            { image: '../../../../assets/images/quiz-choices/smallD-inactive.png', no: 1, isCorrect: false },
+            { image: '../../../../assets/images/quiz-choices/smallE-inactive.png', no: 2, isCorrect: false },
             { image: '../../../../assets/images/quiz-choices/smallA-inactive.png', no: 3, isCorrect: true },
           ]
         }
@@ -34,16 +34,16 @@ export class QuizOnePage implements OnInit {
       images: [
         {
           left: [
-            { image: '../../../../assets/images/quiz-choices/smallE-inactive.png', no: 1, isCorrect: false },
-            { image: '../../../../assets/images/quiz-choices/smallM-inactive.png', no: 2, isCorrect: true },
-            { image: '../../../../assets/images/quiz-choices/capsM-inactive.png', no: 3, isCorrect: false },
+            { image: '../../../../assets/images/quiz-choices/capsW-inactive.png', no: 1, isCorrect: false },
+            { image: '../../../../assets/images/quiz-choices/capsO-inactive.png', no: 2, isCorrect: true },
+            { image: '../../../../assets/images/quiz-choices/capsU-inactive.png', no: 3, isCorrect: false },
           ]
         },
         {
           right: [
-            { image: '../../../../assets/images/quiz-choices/capsJ-inactive.png', no: 1, isCorrect: false },
-            { image: '../../../../assets/images/quiz-choices/capsM-inactive.png', no: 2, isCorrect: true },
-            { image: '../../../../assets/images/quiz-choices/capsK-inactive.png', no: 3, isCorrect: false },
+            { image: '../../../../assets/images/quiz-choices/smallQ-inactive.png', no: 1, isCorrect: false },
+            { image: '../../../../assets/images/quiz-choices/smallO-inactive.png', no: 2, isCorrect: true },
+            { image: '../../../../assets/images/quiz-choices/smallG-inactive.png', no: 3, isCorrect: false },
           ]
         }
       ]
@@ -52,16 +52,16 @@ export class QuizOnePage implements OnInit {
       images: [
         {
           left: [
-            { image: '../../../../assets/images/quiz-choices/smallB-inactive.png', no: 1, isCorrect: false },
-            { image: '../../../../assets/images/quiz-choices/smallR-inactive.png', no: 2, isCorrect: true },
-            { image: '../../../../assets/images/quiz-choices/capsV-inactive.png', no: 3, isCorrect: false },
+            { image: '../../../../assets/images/quiz-choices/capsQ-inactive.png', no: 1, isCorrect: true },
+            { image: '../../../../assets/images/quiz-choices/capsM-inactive.png', no: 2, isCorrect: false },
+            { image: '../../../../assets/images/quiz-choices/capsP-inactive.png', no: 3, isCorrect: false },
           ]
         },
         {
           right: [
-            { image: '../../../../assets/images/quiz-choices/capsD-inactive.png', no: 1, isCorrect: false },
-            { image: '../../../../assets/images/quiz-choices/capsR-inactive.png', no: 2, isCorrect: true },
-            { image: '../../../../assets/images/quiz-choices/smallU-inactive.png', no: 3, isCorrect: false },
+            { image: '../../../../assets/images/quiz-choices/smallN-inactive.png', no: 1, isCorrect: false },
+            { image: '../../../../assets/images/quiz-choices/smallQ-inactive.png', no: 2, isCorrect: true },
+            { image: '../../../../assets/images/quiz-choices/smallX-inactive.png', no: 3, isCorrect: false },
           ]
         }
       ]
@@ -70,16 +70,16 @@ export class QuizOnePage implements OnInit {
       images: [
         {
           left: [
-            { image: '../../../../assets/images/quiz-choices/capsX-inactive.png', no: 1, isCorrect: false },
-            { image: '../../../../assets/images/quiz-choices/smallN-inactive.png', no: 2, isCorrect: true },
-            { image: '../../../../assets/images/quiz-choices/capsT-inactive.png', no: 3, isCorrect: false },
+            { image: '../../../../assets/images/quiz-choices/capsI-inactive.png', no: 1, isCorrect: false },
+            { image: '../../../../assets/images/quiz-choices/capsZ-inactive.png', no: 2, isCorrect: false },
+            { image: '../../../../assets/images/quiz-choices/capsD-inactive.png', no: 3, isCorrect: true },
           ]
         },
         {
           right: [
             { image: '../../../../assets/images/quiz-choices/smallM-inactive.png', no: 1, isCorrect: false },
-            { image: '../../../../assets/images/quiz-choices/capsN-inactive.png', no: 2, isCorrect: true },
-            { image: '../../../../assets/images/quiz-choices/smallW-inactive.png', no: 3, isCorrect: false },
+            { image: '../../../../assets/images/quiz-choices/smallD-inactive.png', no: 2, isCorrect: true },
+            { image: '../../../../assets/images/quiz-choices/smallR-inactive.png', no: 3, isCorrect: false },
           ]
         }
       ]
@@ -89,15 +89,15 @@ export class QuizOnePage implements OnInit {
         {
           left: [
             { image: '../../../../assets/images/quiz-choices/capsA-inactive.png', no: 1, isCorrect: false },
-            { image: '../../../../assets/images/quiz-choices/capsQ-inactive.png', no: 2, isCorrect: true },
+            { image: '../../../../assets/images/quiz-choices/capsK-inactive.png', no: 2, isCorrect: true },
             { image: '../../../../assets/images/quiz-choices/smallF-inactive.png', no: 3, isCorrect: false },
           ]
         },
         {
           right: [
-            { image: '../../../../assets/images/quiz-choices/smallh-inactive.png', no: 1, isCorrect: false },
+            { image: '../../../../assets/images/quiz-choices/smallH-inactive.png', no: 1, isCorrect: false },
             { image: '../../../../assets/images/quiz-choices/capsE-inactive.png', no: 2, isCorrect: false },
-            { image: '../../../../assets/images/quiz-choices/smallQ-inactive.png', no: 3, isCorrect: true },
+            { image: '../../../../assets/images/quiz-choices/smallK-inactive.png', no: 3, isCorrect: true },
           ]
         }
       ]
