@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { CheckOverlayComponent } from 'src/app/components/check-overlay/check-overlay.component';
 import { Profile } from 'src/app/models/profile';
@@ -201,7 +202,7 @@ export class QuizOnePage implements OnInit {
   currentItem: number = 0;
   currentAccount!: Profile;
 
-  constructor(private modalController: ModalController, private data: DataProviderService) { }
+  constructor(private modalController: ModalController, private data: DataProviderService, private router: Router) { }
 
   // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
   ngOnInit() {
@@ -245,7 +246,8 @@ export class QuizOnePage implements OnInit {
         this.currentQuizIndex++;
         this.currentItem = this.currentQuizIndex;
       } else {
-        console.log('Quiz completed');
+        alert('Congrats you Complete Quiz 1!!😃😁');
+        this.router.navigateByUrl('tabs/quizzes');
       }
     }
   }

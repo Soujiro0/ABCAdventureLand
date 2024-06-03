@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { Profile } from 'src/app/models/profile';
 import { DataProviderService } from 'src/app/services/data-provider.service';
@@ -119,7 +120,7 @@ export class LessonTwoPage implements OnInit {
   currentItem: number = 0;
   currentAccount!: Profile;
 
-  constructor(private modalController: ModalController, private data: DataProviderService) { }
+  constructor(private modalController: ModalController, private data: DataProviderService, private router: Router) { }
 
   ngOnInit() {
     this.currentAccount = this.data.currentLoginProfile;
@@ -147,7 +148,8 @@ export class LessonTwoPage implements OnInit {
         this.currentLessonIndex++;
         this.currentItem = this.currentLessonIndex;
       } else {
-        console.log('All lessons completed');
+        alert('Congrats you Complete Lesson 2!!😃😁');
+        this.router.navigateByUrl('tabs/lectures');
       }
     }
   }
